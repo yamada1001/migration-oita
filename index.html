@@ -189,6 +189,107 @@
       margin-top: 4px;
     }
 
+    /* フェルミ推定カード - 大幅改善 */
+    .fermi-card {
+      background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+      border: 2px solid var(--info-color);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px;
+      text-align: left;
+    }
+
+    .fermi-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--info-color);
+      margin-bottom: 24px;
+      text-align: center;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--info-color);
+    }
+
+    .fermi-steps {
+      display: grid;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .fermi-step {
+      background: white;
+      border: 1px solid #B3E5FC;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .step-label {
+      font-weight: 600;
+      color: var(--info-color);
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .step-calculation {
+      font-family: 'Courier New', monospace;
+      font-size: 15px;
+      color: var(--dark-gray);
+      margin: 8px 0;
+      line-height: 1.6;
+    }
+
+    .step-result {
+      font-weight: 600;
+      color: var(--text-color);
+      font-size: 16px;
+      margin-top: 12px;
+      padding: 8px 12px;
+      background-color: #E3F2FD;
+      border-radius: 6px;
+    }
+
+    .fermi-formula {
+      background: var(--info-color);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .fermi-formula h4 {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .formula-text {
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .fermi-conclusion {
+      background: #E8F5E8;
+      border: 2px solid var(--success-color);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .conclusion-number {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--success-color);
+      margin-bottom: 8px;
+    }
+
+    .conclusion-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark-gray);
+    }
+
     /* メインコンテンツ */
     .content {
       padding: 40px 32px;
@@ -481,7 +582,8 @@
         padding: 24px 20px;
       }
       
-      .budget-overview {
+      .budget-overview,
+      .fermi-card {
         margin: 20px;
         padding: 24px;
       }
@@ -514,6 +616,10 @@
       .result-number {
         font-size: 36px;
       }
+
+      .conclusion-number {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
@@ -521,7 +627,7 @@
   <!-- 認証オーバーレイ -->
   <div id="authOverlay" class="auth-overlay">
     <div class="auth-box">
-      <h2>🔒 機密資料アクセス</h2>
+      <h2>機密資料アクセス</h2>
       <p>この資料は関係者限定です。<br>パスワードを入力してください。</p>
       <input type="password" id="passwordInput" placeholder="パスワードを入力">
       <button onclick="checkPassword()">アクセス</button>
@@ -560,6 +666,65 @@
             <div class="budget-number">3ヶ月</div>
             <div class="budget-label">実行期間</div>
           </div>
+        </div>
+      </div>
+
+      <!-- フェルミ推定セクション - 大幅改善 -->
+      <div class="fermi-card">
+        <div class="fermi-title">ターゲット母数推定（保守的計算）</div>
+        
+        <div class="fermi-steps">
+          <div class="fermi-step">
+            <div class="step-label">Step 1: 基準人口</div>
+            <div class="step-calculation">国内フリーランス総数：約462万人（2023年ランサーズ調査）</div>
+            <div class="step-result">基準値：4,620,000人</div>
+          </div>
+
+          <div class="fermi-step">
+            <div class="step-label">Step 2: リモートワーク可能率</div>
+            <div class="step-calculation">場所に関係なく働ける職種の割合：15%（保守的見積もり）</div>
+            <div class="step-result">対象者：4,620,000 × 15% = 693,000人</div>
+          </div>
+
+          <div class="fermi-step">
+            <div class="step-label">Step 3: 対象年齢層</div>
+            <div class="step-calculation">25-54歳の割合：65%（キャリア形成・移住実現可能層）</div>
+            <div class="step-result">年齢適合者：693,000 × 65% = 450,450人</div>
+          </div>
+
+          <div class="fermi-step">
+            <div class="step-label">Step 4: 移住検討可能層</div>
+            <div class="step-calculation">家族・住宅ローン等の制約がない層：8%（厳しめ設定）</div>
+            <div class="step-result">制約なし層：450,450 × 8% = 36,036人</div>
+          </div>
+
+          <div class="fermi-step">
+            <div class="step-label">Step 5: 地方移住関心層</div>
+            <div class="step-calculation">地方移住に関心がある層：12%（内閣府調査より低めに設定）</div>
+            <div class="step-result">関心層：36,036 × 12% = 4,324人</div>
+          </div>
+
+          <div class="fermi-step">
+            <div class="step-label">Step 6: 実際のアクション可能層</div>
+            <div class="step-calculation">意識と行動のギャップを考慮：5%（現実的な行動力評価）</div>
+            <div class="step-result">行動可能層：4,324 × 5% = 216人</div>
+          </div>
+        </div>
+
+        <div class="fermi-formula">
+          <h4>計算式</h4>
+          <div class="formula-text">
+            462万人 × 15% × 65% × 8% × 12% × 5% ≈ 216人
+          </div>
+        </div>
+
+        <div class="fermi-conclusion">
+          <div class="conclusion-number">約216人</div>
+          <div class="conclusion-text">保守的に推定した現実的なターゲット母数</div>
+        </div>
+
+        <div class="note note-warning">
+          <strong>保守的設定の理由：</strong>過度に楽観的な数値を避け、家族構成・住宅ローン・地域への不安・実際の行動力等の制約要因を厳しく見積もった結果です。このターゲット母数に対して50万円で25人獲得（約12%の市場シェア獲得）は挑戦的だが実現可能な目標設定です。
         </div>
       </div>
 
