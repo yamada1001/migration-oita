@@ -81,6 +81,7 @@
       --success-color: #059669;
       --info-color: #0284C7;
       --warning-color: #D97706;
+      --danger-color: #DC2626;
       --light-gray: #F3F4F6;
       --medium-gray: #6B7280;
       --dark-gray: #374151;
@@ -187,6 +188,65 @@
       font-size: 14px;
       color: var(--medium-gray);
       margin-top: 4px;
+    }
+
+    /* 課題感カード */
+    .challenge-card {
+      background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%);
+      border: 2px solid var(--danger-color);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px;
+      text-align: left;
+    }
+
+    .challenge-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--danger-color);
+      margin-bottom: 24px;
+      text-align: center;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--danger-color);
+    }
+
+    .risk-item {
+      background: white;
+      border: 1px solid #FCA5A5;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 16px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .risk-header {
+      font-weight: 600;
+      color: var(--danger-color);
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .risk-description {
+      color: var(--dark-gray);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .risk-impact {
+      background-color: #FEF2F2;
+      border-left: 4px solid var(--danger-color);
+      padding: 12px;
+      font-size: 14px;
+      color: var(--dark-gray);
+    }
+
+    .countermeasure {
+      background-color: #F0FDF4;
+      border-left: 4px solid var(--success-color);
+      padding: 12px;
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--dark-gray);
     }
 
     /* フェルミ推定カード - 大幅改善 */
@@ -430,6 +490,12 @@
       border: 1px solid #C4B5FD;
     }
 
+    .pill-danger {
+      background-color: #FEE2E2;
+      color: #B91C1C;
+      border: 1px solid #FCA5A5;
+    }
+
     /* テーブル */
     .table {
       width: 100%;
@@ -559,6 +625,12 @@
       color: #7C3AED;
     }
 
+    .note-danger {
+      background-color: #FEF2F2;
+      border-color: var(--danger-color);
+      color: #B91C1C;
+    }
+
     /* 強調テキスト */
     .highlight {
       font-weight: 600;
@@ -583,7 +655,8 @@
       }
       
       .budget-overview,
-      .fermi-card {
+      .fermi-card,
+      .challenge-card {
         margin: 20px;
         padding: 24px;
       }
@@ -669,7 +742,7 @@
         </div>
       </div>
 
-      <!-- フェルミ推定セクション - 大幅改善 -->
+      <!-- フェルミ推定セクション -->
       <div class="fermi-card">
         <div class="fermi-title">ターゲット母数推定（保守的計算）</div>
         
@@ -982,6 +1055,69 @@
               <li><strong>2ヶ月後：</strong>個別相談CPA 12,000円以下で継続</li>
               <li><strong>3ヶ月後：</strong>移住者CPA 25,000円以下で次期予算拡大検討</li>
             </ul>
+          </div>
+        </section>
+
+        <!-- 課題感・リスク分析セクション -->
+        <section>
+          <h2>8. 戦略実行における重要課題とリスク分析</h2>
+          <div class="challenge-card">
+            <div class="challenge-title">主要リスク要因</div>
+            
+            <div class="risk-item">
+              <div class="risk-header">リスク1: 専用LP制作の必要性</div>
+              <div class="risk-description">現状のトップページでは、SNS→広告→LP→コンバージョンの導線が最適化されておらず、CVRの大幅な低下が懸念される。</div>
+              <div class="risk-impact"><strong>影響度：</strong>CVR30-50%低下の可能性。目標25人→実際12-17人程度になるリスク</div>
+            </div>
+
+            <div class="risk-item">
+              <div class="risk-header">リスク2: オフライン接点の不足</div>
+              <div class="risk-description">移住は人生の大きな決断であり、SNS上のみの関係構築では信頼関係の形成が困難。現地での人的つながりがない場合、最終的な移住決定に至らない可能性が高い。</div>
+              <div class="risk-impact"><strong>影響度：</strong>個別相談後の移住決定率が50%→20-30%に低下するリスク</div>
+            </div>
+
+            <div class="risk-item">
+              <div class="risk-header">リスク3: ショート動画依存の脆弱性（メディアミックスの掛け算リスク）</div>
+              <div class="risk-description">本戦略は、ショート動画による想起形成→デマンドジェネレーション広告での刈り取りという掛け算構造になっており、一方が失敗すると全体が機能不全に陥る構造的リスクを抱えている。</div>
+              
+              <!-- 数式による説明セクション -->
+              <div style="background: white; border: 2px solid #DC2626; border-radius: 8px; padding: 20px; margin: 16px 0;">
+                <h4 style="color: #DC2626; margin-bottom: 16px; text-align: center;">メディアミックスの掛け算効果とリスク</h4>
+                
+                <div style="font-family: 'Courier New', monospace; font-size: 16px; text-align: center; margin: 16px 0;">
+                  <div style="background: #F0F9FF; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                    <strong>理想シナリオ：</strong><br>
+                    SNS想起効果(10) × デマンドジェン広告効果(5) = <span style="color: #059669; font-weight: bold;">総合効果(50)</span>
+                  </div>
+                  
+                  <div style="background: #FEF2F2; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                    <strong>ショート動画低迷時：</strong><br>
+                    SNS想起効果(1) × デマンドジェン広告効果(5) = <span style="color: #DC2626; font-weight: bold;">総合効果(5)</span>
+                  </div>
+                  
+                  <div style="background: #FEF2F2; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                    <strong>ショート動画完全失敗時：</strong><br>
+                    SNS想起効果(0) × デマンドジェン広告効果(5) = <span style="color: #DC2626; font-weight: bold;">総合効果(0)</span>
+                  </div>
+                </div>
+                
+                <div style="font-size: 14px; color: #374151; margin-top: 16px;">
+                  <strong>具体的影響：</strong>
+                  <ul style="text-align: left; margin: 8px 0; padding-left: 20px;">
+                    <li>ショート動画がバズらない場合：成果が理想の10%程度（移住者2-3人）に激減</li>
+                    <li>ショート動画が完全失敗の場合：デマンドジェン広告も「既視感なし」で効果ゼロ</li>
+                    <li>想起がないため、広告を見ても「知らないブランド」として無視される</li>
+                    <li>40万円（SNS制作+ブースト費用）が実質的に無駄になる可能性</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="risk-impact"><strong>影響度：</strong>ショート動画失敗時は全体戦略の効果が90%以上減少し、移住者獲得が2-3人程度に留まるリスク</div>
+            </div>
+
+            <div class="note note-danger">
+              <strong>総合リスク評価：</strong>上記リスクが複合的に発生した場合、目標25人に対し実際の移住者は2-5人程度に留まる可能性があります。特にショート動画の成功可否が全体戦略の成否を左右する構造的リスクに注意が必要です。
+            </div>
           </div>
         </section>
 
