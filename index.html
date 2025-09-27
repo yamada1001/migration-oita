@@ -449,6 +449,55 @@
       background-color: #FAFAFA;
     }
 
+    /* 比較テーブル（新規追加）*/
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .comparison-table th {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+      color: white;
+      padding: 16px 12px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .comparison-table td {
+      padding: 16px 12px;
+      border: 1px solid var(--border-color);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .comparison-table tr:nth-child(even) {
+      background-color: #FAFAFA;
+    }
+
+    .comparison-table .category-cell {
+      background-color: var(--light-gray);
+      font-weight: 600;
+      color: var(--dark-gray);
+      width: 20%;
+    }
+
+    .comparison-table .individual-cell {
+      background-color: #FEF2F2;
+      color: var(--dark-gray);
+      width: 40%;
+    }
+
+    .comparison-table .project-cell {
+      background-color: #F0F9FF;
+      color: var(--dark-gray);
+      width: 40%;
+      border-left: 3px solid var(--primary-color);
+    }
+
     /* 簡単な成果予測テーブル */
     .simple-table {
       width: 100%;
@@ -620,6 +669,15 @@
       .conclusion-number {
         font-size: 24px;
       }
+
+      .comparison-table {
+        font-size: 12px;
+      }
+
+      .comparison-table th,
+      .comparison-table td {
+        padding: 8px 6px;
+      }
     }
   </style>
 </head>
@@ -788,8 +846,43 @@
             </div>
           </div>
 
+          <h3>フリーランスにとってのプロジェクト利用価値比較</h3>
+          <p>既にスキルを持つフリーランスが、なぜ「大分IT移住プロジェクト」を利用するのか？それは単なるスクールではなく、<strong>移住成功のアクセラレーター</strong>として機能するためです。</p>
+          
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>項目</th>
+                <th>個人での移住（プロジェクト不使用）</th>
+                <th>大分IT移住プロジェクト利用</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="category-cell"><strong>コミュニティ形成</strong></td>
+                <td class="individual-cell">ゼロから人脈を構築する必要があり、特に最初の数ヶ月は<strong>強い孤独感</strong>に苛まれる。事業アイデアの壁打ち相手もいない。</td>
+                <td class="project-cell">プロジェクト参加者や卒業生、運営スタッフとの<strong>即時的で質の高いコミュニティ</strong>に所属できる。これが最大のベネフィット。</td>
+              </tr>
+              <tr>
+                <td class="category-cell"><strong>社会的信用</strong></td>
+                <td class="individual-cell">「どこの馬の骨かわからない余所者」として見られ、<strong>地域社会やビジネスシーンでの信頼獲得に時間がかかる</strong>。</td>
+                <td class="project-cell">大分県や市が後援するプロジェクトの一員として、<strong>「お墨付き」の社会的信用</strong>を最初から得られる。</td>
+              </tr>
+              <tr>
+                <td class="category-cell"><strong>ビジネス機会</strong></td>
+                <td class="individual-cell">地域のキーパーソンや商慣習がわからず、<strong>地場企業との接点を作りにくい</strong>。営業活動も手探り状態。</td>
+                <td class="project-cell">県や商工会議所、地場企業との<strong>公式なコネクション</strong>を活用でき、地域課題解決プロジェクトなどへの参画機会を得やすい。</td>
+              </tr>
+              <tr>
+                <td class="category-cell"><strong>生活の立ち上げ</strong></td>
+                <td class="individual-cell">土地勘がなく、住居探しや最適なインフラ契約で消耗する。地域特有のルールがわからず、<strong>無駄な時間と精神的コスト</strong>が発生。</td>
+                <td class="project-cell">移住者向けの物件情報や、移住の先輩たちの「生きた知恵」にアクセスでき、<strong>「ソフトランディング」</strong>が実現する。</td>
+              </tr>
+            </tbody>
+          </table>
+
           <div class="note note-success">
-            <strong>再定義のメリット：</strong>大分での持続可能なキャリア形成が現実的に可能な層をターゲットにすることで、移住後の満足度向上と長期定着率の改善が期待できます。また、多様な職種を対象とすることで、ターゲット母数の拡大も見込めます。
+            <strong>再定義のメリット：</strong>フリーランスにとって、このプロジェクトは「移住成功のための保険であり、ワープ装置」として機能します。①インスタント・コミュニティによる孤独からの解放 ②「お墨付き」による信用の獲得 ③インサイダー情報へのアクセス、これら3つが主要な価値提供となります。
           </div>
         </div>
       </section>
