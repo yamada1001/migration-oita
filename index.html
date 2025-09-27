@@ -6,70 +6,6 @@
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
   <title>大分IT移住プロジェクト｜メディアミックス戦略提案書（機密資料）</title>
   <style>
-    /* 認証画面用のスタイル */
-    .auth-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .auth-box {
-      background: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      text-align: center;
-      max-width: 400px;
-    }
-
-    .auth-box h2 {
-      margin-bottom: 20px;
-      color: #1F2937;
-    }
-
-    .auth-box input {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #E5E7EB;
-      border-radius: 6px;
-      font-size: 16px;
-    }
-
-    .auth-box button {
-      width: 100%;
-      padding: 12px;
-      background-color: #2563EB;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-
-    .auth-box button:hover {
-      background-color: #1D4ED8;
-    }
-
-    .error-message {
-      color: #DC2626;
-      margin-top: 10px;
-      font-size: 14px;
-    }
-
-    /* メインコンテンツは初期状態で非表示 */
-    .main-content {
-      display: none;
-    }
-
     /* CSS変数定義 */
     :root {
       --primary-color: #2563EB;
@@ -236,15 +172,6 @@
       background-color: #FEF2F2;
       border-left: 4px solid var(--danger-color);
       padding: 12px;
-      font-size: 14px;
-      color: var(--dark-gray);
-    }
-
-    .countermeasure {
-      background-color: #F0FDF4;
-      border-left: 4px solid var(--success-color);
-      padding: 12px;
-      margin-top: 12px;
       font-size: 14px;
       color: var(--dark-gray);
     }
@@ -697,462 +624,427 @@
   </style>
 </head>
 <body>
-  <!-- 認証オーバーレイ -->
-  <div id="authOverlay" class="auth-overlay">
-    <div class="auth-box">
-      <h2>機密資料アクセス</h2>
-      <p>この資料は関係者限定です。<br>パスワードを入力してください。</p>
-      <input type="password" id="passwordInput" placeholder="パスワードを入力">
-      <button onclick="checkPassword()">アクセス</button>
-      <div id="errorMessage" class="error-message"></div>
+  <div class="container">
+    <div class="confidential">機密資料 - CONFIDENTIAL - 関係者以外の閲覧・配布を禁止します</div>
+    
+    <header class="header">
+      <h1>大分IT移住プロジェクト｜メディアミックス戦略提案書</h1>
+      <p>SNS想起を起点としたGoogleデマンドジェネレーション広告による刈り取り戦略</p>
+    </header>
+
+    <!-- 予算概要セクション -->
+    <div class="budget-overview">
+      <h2>戦略概要と予算配分</h2>
+      <p><strong>50万円の投資で25名の移住者獲得を目指すメディアミックス戦略</strong></p>
+      <div class="budget-grid">
+        <div class="budget-item">
+          <div class="budget-number">50万円</div>
+          <div class="budget-label">総投資予算</div>
+        </div>
+        <div class="budget-item">
+          <div class="budget-number">25人</div>
+          <div class="budget-label">目標移住者数</div>
+        </div>
+        <div class="budget-item">
+          <div class="budget-number">2万円</div>
+          <div class="budget-label">移住者CPA（理想値）</div>
+        </div>
+        <div class="budget-item">
+          <div class="budget-number">3ヶ月</div>
+          <div class="budget-label">実行期間</div>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <!-- メインコンテンツ -->
-  <div class="main-content">
-    <div class="container">
-      <div class="confidential">機密資料 - CONFIDENTIAL - 関係者以外の閲覧・配布を禁止します</div>
+    <!-- フェルミ推定セクション -->
+    <div class="fermi-card">
+      <div class="fermi-title">ターゲット母数推定（保守的計算）</div>
       
-      <header class="header">
-        <h1>大分IT移住プロジェクト｜メディアミックス戦略提案書</h1>
-        <p>SNS想起を起点としたGoogleデマンドジェネレーション広告による刈り取り戦略</p>
-      </header>
+      <div class="fermi-steps">
+        <div class="fermi-step">
+          <div class="step-label">Step 1: 基準人口</div>
+          <div class="step-calculation">国内フリーランス総数：約462万人（2023年ランサーズ調査）</div>
+          <div class="step-result">基準値：4,620,000人</div>
+        </div>
 
-      <!-- 予算概要セクション -->
-      <div class="budget-overview">
-        <h2>戦略概要と予算配分</h2>
-        <p><strong>50万円の投資で25名の移住者獲得を目指すメディアミックス戦略</strong></p>
-        <div class="budget-grid">
-          <div class="budget-item">
-            <div class="budget-number">50万円</div>
-            <div class="budget-label">総投資予算</div>
-          </div>
-          <div class="budget-item">
-            <div class="budget-number">25人</div>
-            <div class="budget-label">目標移住者数</div>
-          </div>
-          <div class="budget-item">
-            <div class="budget-number">2万円</div>
-            <div class="budget-label">移住者CPA（理想値）</div>
-          </div>
-          <div class="budget-item">
-            <div class="budget-number">3ヶ月</div>
-            <div class="budget-label">実行期間</div>
-          </div>
+        <div class="fermi-step">
+          <div class="step-label">Step 2: リモートワーク可能率</div>
+          <div class="step-calculation">場所に関係なく働ける職種の割合：15%（保守的見積もり）</div>
+          <div class="step-result">対象者：4,620,000 × 15% = 693,000人</div>
+        </div>
+
+        <div class="fermi-step">
+          <div class="step-label">Step 3: 対象年齢層</div>
+          <div class="step-calculation">25-54歳の割合：65%（キャリア形成・移住実現可能層）</div>
+          <div class="step-result">年齢適合者：693,000 × 65% = 450,450人</div>
+        </div>
+
+        <div class="fermi-step">
+          <div class="step-label">Step 4: 移住検討可能層</div>
+          <div class="step-calculation">家族・住宅ローン等の制約がない層：8%（厳しめ設定）</div>
+          <div class="step-result">制約なし層：450,450 × 8% = 36,036人</div>
+        </div>
+
+        <div class="fermi-step">
+          <div class="step-label">Step 5: 地方移住関心層</div>
+          <div class="step-calculation">地方移住に関心がある層：12%（内閣府調査より低めに設定）</div>
+          <div class="step-result">関心層：36,036 × 12% = 4,324人</div>
+        </div>
+
+        <div class="fermi-step">
+          <div class="step-label">Step 6: 実際のアクション可能層</div>
+          <div class="step-calculation">意識と行動のギャップを考慮：5%（現実的な行動力評価）</div>
+          <div class="step-result">行動可能層：4,324 × 5% = 216人</div>
         </div>
       </div>
 
-      <!-- フェルミ推定セクション -->
-      <div class="fermi-card">
-        <div class="fermi-title">ターゲット母数推定（保守的計算）</div>
-        
-        <div class="fermi-steps">
-          <div class="fermi-step">
-            <div class="step-label">Step 1: 基準人口</div>
-            <div class="step-calculation">国内フリーランス総数：約462万人（2023年ランサーズ調査）</div>
-            <div class="step-result">基準値：4,620,000人</div>
-          </div>
+      <div class="fermi-formula">
+        <h4>計算式</h4>
+        <div class="formula-text">
+          462万人 × 15% × 65% × 8% × 12% × 5% ≈ 216人
+        </div>
+      </div>
 
-          <div class="fermi-step">
-            <div class="step-label">Step 2: リモートワーク可能率</div>
-            <div class="step-calculation">場所に関係なく働ける職種の割合：15%（保守的見積もり）</div>
-            <div class="step-result">対象者：4,620,000 × 15% = 693,000人</div>
-          </div>
+      <div class="fermi-conclusion">
+        <div class="conclusion-number">約216人</div>
+        <div class="conclusion-text">保守的に推定した現実的なターゲット母数</div>
+      </div>
 
-          <div class="fermi-step">
-            <div class="step-label">Step 3: 対象年齢層</div>
-            <div class="step-calculation">25-54歳の割合：65%（キャリア形成・移住実現可能層）</div>
-            <div class="step-result">年齢適合者：693,000 × 65% = 450,450人</div>
-          </div>
+      <div class="note note-warning">
+        <strong>保守的設定の理由：</strong>過度に楽観的な数値を避け、家族構成・住宅ローン・地域への不安・実際の行動力等の制約要因を厳しく見積もった結果です。このターゲット母数に対して50万円で25人獲得（約12%の市場シェア獲得）は挑戦的だが実現可能な目標設定です。
+      </div>
+    </div>
 
-          <div class="fermi-step">
-            <div class="step-label">Step 4: 移住検討可能層</div>
-            <div class="step-calculation">家族・住宅ローン等の制約がない層：8%（厳しめ設定）</div>
-            <div class="step-result">制約なし層：450,450 × 8% = 36,036人</div>
-          </div>
-
-          <div class="fermi-step">
-            <div class="step-label">Step 5: 地方移住関心層</div>
-            <div class="step-calculation">地方移住に関心がある層：12%（内閣府調査より低めに設定）</div>
-            <div class="step-result">関心層：36,036 × 12% = 4,324人</div>
-          </div>
-
-          <div class="fermi-step">
-            <div class="step-label">Step 6: 実際のアクション可能層</div>
-            <div class="step-calculation">意識と行動のギャップを考慮：5%（現実的な行動力評価）</div>
-            <div class="step-result">行動可能層：4,324 × 5% = 216人</div>
-          </div>
+    <main class="content">
+      <section>
+        <h2>投資対効果の詳細</h2>
+        <div class="result-card">
+          <div class="result-number">25人</div>
+          <div class="result-text">移住者獲得目標（理想値）</div>
+          <p>投資金額：50万円 ÷ 25人 = <strong>移住者1人当たりのCPA：2万円</strong></p>
         </div>
 
-        <div class="fermi-formula">
-          <h4>計算式</h4>
-          <div class="formula-text">
-            462万人 × 15% × 65% × 8% × 12% × 5% ≈ 216人
-          </div>
-        </div>
-
-        <div class="fermi-conclusion">
-          <div class="conclusion-number">約216人</div>
-          <div class="conclusion-text">保守的に推定した現実的なターゲット母数</div>
-        </div>
+        <table class="simple-table">
+          <thead>
+            <tr>
+              <th>項目</th>
+              <th>予算</th>
+              <th>期待CV数</th>
+              <th>CPA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ウェビナー申込</td>
+              <td>-</td>
+              <td>125人</td>
+              <td>¥4,000</td>
+            </tr>
+            <tr>
+              <td>個別相談申込</td>
+              <td>-</td>
+              <td>50人</td>
+              <td>¥10,000</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>実際の移住者</strong></td>
+              <td><strong>50万円</strong></td>
+              <td><strong>25人</strong></td>
+              <td><strong>¥20,000</strong></td>
+            </tr>
+          </tbody>
+        </table>
 
         <div class="note note-warning">
-          <strong>保守的設定の理由：</strong>過度に楽観的な数値を避け、家族構成・住宅ローン・地域への不安・実際の行動力等の制約要因を厳しく見積もった結果です。このターゲット母数に対して50万円で25人獲得（約12%の市場シェア獲得）は挑戦的だが実現可能な目標設定です。
+          <strong>重要：</strong>上記数値は過去の大分IT移住プロジェクト実績（2021-2024年で147人受講、208名移住）やデマンドジェネレーション広告の一般的な成果を基にした期待値です。実際の成果は市場環境、競合状況、クリエイティブ品質等により変動する可能性があります。
         </div>
-      </div>
+      </section>
 
-      <main class="content">
-        <section>
-          <h2>投資対効果の詳細</h2>
-          <div class="result-card">
-            <div class="result-number">25人</div>
-            <div class="result-text">移住者獲得目標（理想値）</div>
-            <p>投資金額：50万円 ÷ 25人 = <strong>移住者1人当たりのCPA：2万円</strong></p>
+      <section>
+        <h2>1. ターゲット再定義</h2>
+        <div class="card">
+          <h3>従来ターゲットの課題と再定義の必要性</h3>
+          <div class="note note-warning">
+            <strong>従来の課題：</strong>これまで「ITエンジニア・開発職」を中心としたターゲティングを行ってきましたが、大分県内で開発エンジニアとしての継続的なキャリアパスを描ける環境は限定的です。結果的に、移住後のキャリア形成に不安を抱えるユーザーが多く、真の意味での「移住成功」に繋がっていない可能性があります。
           </div>
 
-          <table class="simple-table">
+          <h3>新ターゲット（再定義後）</h3>
+          <div class="grid grid-2">
+            <div>
+              <h4>主要ターゲット</h4>
+              <ul>
+                <li><strong>働き方重視層：</strong>場所に縛られずに働ける全職種（IT系に限定しない）</li>
+                <li><strong>ライフスタイル重視層：</strong>年収よりも生活の質・時間的余裕を重視する層</li>
+                <li><strong>リモートワーク経験者：</strong>既にリモートワークの経験があり、その継続が可能な人材</li>
+              </ul>
+            </div>
+            <div>
+              <h4>興味関心軸（再定義）</h4>
+              <ul>
+                <li><span class="highlight">持続可能なキャリア形成：</span>大分でも継続・発展可能な仕事内容への関心</li>
+                <li><span class="highlight">ワークライフインテグレーション：</span>仕事と生活の境界を意識的に溶かした新しい働き方</li>
+                <li><span class="highlight">コストパフォーマンス重視：</span>同じ収入でもより豊かな生活を実現したいニーズ</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="note note-success">
+            <strong>再定義のメリット：</strong>大分での持続可能なキャリア形成が現実的に可能な層をターゲットにすることで、移住後の満足度向上と長期定着率の改善が期待できます。また、多様な職種を対象とすることで、ターゲット母数の拡大も見込めます。
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>2. メディアミックス戦略</h2>
+        <div class="card">
+          <h3>戦略コンセプト：SNS想起→デマンドジェネレーション広告刈り取り</h3>
+          <p>外注制作されたSNSコンテンツで「大分での理想的な働き方」への憧憬と好奇心を醸成し、「あ、TikTokで見たあの素敵な大分ライフだ！」という既視感を創出。その後、Googleデマンドジェネレーション広告でYouTube・Discover・Gmailを通じて興味を持ったユーザーを効率的に刈り取る戦略です。</p>
+          
+          <div class="grid grid-3">
+            <div>
+              <span class="pill pill-primary">SNS外注制作 20万円</span>
+              <p class="note">TikTok・Instagram向け「憧れの大分ライフ」を魅力的に描写</p>
+            </div>
+            <div>
+              <span class="pill pill-warning">SNS広告ブースト 20万円</span>
+              <p class="note">高エンゲージメント動画に限定して想起拡大とブランド浸透</p>
+            </div>
+            <div>
+              <span class="pill pill-success">デマンドジェン広告 10万円</span>
+              <p class="note">YouTube・Discover・Gmail配信で「やってみたい」気持ちを行動に転換</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>3. Googleデマンドジェネレーション広告戦略</h2>
+        <div class="card">
+          <h3>配信面とターゲティング</h3>
+          <div class="grid grid-2">
+            <div>
+              <h4>主要配信面</h4>
+              <ul>
+                <li><strong>YouTube：</strong>インストリーム・ショート・インフィード広告</li>
+                <li><strong>Discover：</strong>ユーザーの趣味嗜好に合わせた自動配信</li>
+                <li><strong>Gmail：</strong>受信ボックス内への広告掲載</li>
+                <li><strong>Google動画パートナー：</strong>提携サイトでの動画広告</li>
+              </ul>
+            </div>
+            <div>
+              <h4>ターゲティング設定</h4>
+              <p>デマンドジェネレーション広告の特性を活かし、細かなセグメントは行わず、Googleの機械学習による自動最適化を重視します。</p>
+              <ul>
+                <li><strong>地域：</strong>日本全国（大分県除く）</li>
+                <li><strong>年齢：</strong>25-54歳</li>
+                <li><strong>デバイス：</strong>全デバイス対応</li>
+                <li><strong>最適化：</strong>コンバージョン重視の自動入札</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>4. クリエイティブ戦略</h2>
+        <div class="card">
+          <h3>メインコピー案</h3>
+          <div class="copy-text">仕事は変えず、暮らしを変える。<br>まずは話を聞いてみませんか？</div>
+          <div class="copy-text">次の住む場所、ワクワクで決めよう。<br>働き心地のA/Bテスト、始めませんか？</div>
+          <div class="copy-text">スキルがあるなら、場所は選べる。<br>どうせなら"ととのう"毎日を。</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>5. 詳細な成果予測</h2>
+        <div class="card">
+          <h3>メインファネル別の期待値（あくまで予測）</h3>
+          <table class="table">
             <thead>
               <tr>
-                <th>項目</th>
-                <th>予算</th>
+                <th>段階</th>
                 <th>期待CV数</th>
-                <th>CPA</th>
+                <th>前段階からのCV率</th>
+                <th>累計投資額でのCPA</th>
+                <th>根拠</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>ウェビナー申込</td>
-                <td>-</td>
                 <td>125人</td>
+                <td>-</td>
                 <td>¥4,000</td>
+                <td>デマンドジェン広告の一般的なCPA</td>
+              </tr>
+              <tr>
+                <td>ウェビナー参加</td>
+                <td>100人</td>
+                <td>80%</td>
+                <td>¥5,000</td>
+                <td>一般的なウェビナー参加率</td>
               </tr>
               <tr>
                 <td>個別相談申込</td>
-                <td>-</td>
                 <td>50人</td>
+                <td>50%</td>
                 <td>¥10,000</td>
+                <td>再定義ターゲットの高い関心度</td>
               </tr>
-              <tr class="highlight-row">
-                <td><strong>実際の移住者</strong></td>
-                <td><strong>50万円</strong></td>
+              <tr style="background-color: #FEF3C7; font-weight: 600;">
+                <td><strong>実際の移住決定</strong></td>
                 <td><strong>25人</strong></td>
+                <td><strong>50%</strong></td>
                 <td><strong>¥20,000</strong></td>
+                <td><strong>持続可能なキャリア設計による高い決定率</strong></td>
               </tr>
             </tbody>
           </table>
-
-          <div class="note note-warning">
-            <strong>重要：</strong>上記数値は過去の大分IT移住プロジェクト実績（2021-2024年で147人受講、208名移住）やデマンドジェネレーション広告の一般的な成果を基にした期待値です。実際の成果は市場環境、競合状況、クリエイティブ品質等により変動する可能性があります。
+          
+          <div class="note note-success">
+            <strong>ターゲット再定義による効果：</strong>大分で持続可能なキャリア形成が可能な層をターゲットにすることで、移住後の満足度向上と長期定着率の改善が期待できます。
           </div>
-        </section>
-
-        <section>
-          <h2>1. ターゲット再定義</h2>
-          <div class="card">
-            <h3>従来ターゲットの課題と再定義の必要性</h3>
-            <div class="note note-warning">
-              <strong>従来の課題：</strong>これまで「ITエンジニア・開発職」を中心としたターゲティングを行ってきましたが、大分県内で開発エンジニアとしての継続的なキャリアパスを描ける環境は限定的です。結果的に、移住後のキャリア形成に不安を抱えるユーザーが多く、真の意味での「移住成功」に繋がっていない可能性があります。
-            </div>
-
-            <h3>新ターゲット（再定義後）</h3>
-            <div class="grid grid-2">
-              <div>
-                <h4>主要ターゲット</h4>
-                <ul>
-                  <li><strong>働き方重視層：</strong>場所に縛られずに働ける全職種（IT系に限定しない）</li>
-                  <li><strong>ライフスタイル重視層：</strong>年収よりも生活の質・時間的余裕を重視する層</li>
-                  <li><strong>リモートワーク経験者：</strong>既にリモートワークの経験があり、その継続が可能な人材</li>
-                </ul>
-              </div>
-              <div>
-                <h4>興味関心軸（再定義）</h4>
-                <ul>
-                  <li><span class="highlight">持続可能なキャリア形成：</span>大分でも継続・発展可能な仕事内容への関心</li>
-                  <li><span class="highlight">ワークライフインテグレーション：</span>仕事と生活の境界を意識的に溶かした新しい働き方</li>
-                  <li><span class="highlight">コストパフォーマンス重視：</span>同じ収入でもより豊かな生活を実現したいニーズ</li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="note note-success">
-              <strong>再定義のメリット：</strong>大分での持続可能なキャリア形成が現実的に可能な層をターゲットにすることで、移住後の満足度向上と長期定着率の改善が期待できます。また、多様な職種を対象とすることで、ターゲット母数の拡大も見込めます。
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2>2. メディアミックス戦略</h2>
-          <div class="card">
-            <h3>戦略コンセプト：SNS想起→デマンドジェネレーション広告刈り取り</h3>
-            <p>外注制作されたSNSコンテンツで「大分での理想的な働き方」への憧憬と好奇心を醸成し、「あ、TikTokで見たあの素敵な大分ライフだ！」という既視感を創出。その後、Googleデマンドジェネレーション広告でYouTube・Discover・Gmailを通じて興味を持ったユーザーを効率的に刈り取る戦略です。</p>
-            
-            <div class="grid grid-3">
-              <div>
-                <span class="pill pill-primary">SNS外注制作 20万円</span>
-                <p class="note">TikTok・Instagram向け「憧れの大分ライフ」を魅力的に描写</p>
-              </div>
-              <div>
-                <span class="pill pill-warning">SNS広告ブースト 20万円</span>
-                <p class="note">高エンゲージメント動画に限定して想起拡大とブランド浸透</p>
-              </div>
-              <div>
-                <span class="pill pill-success">デマンドジェン広告 10万円</span>
-                <p class="note">YouTube・Discover・Gmail配信で「やってみたい」気持ちを行動に転換</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2>3. Googleデマンドジェネレーション広告戦略</h2>
-          <div class="card">
-            <h3>配信面とターゲティング</h3>
-            <div class="grid grid-2">
-              <div>
-                <h4>主要配信面</h4>
-                <ul>
-                  <li><strong>YouTube：</strong>インストリーム・ショート・インフィード広告</li>
-                  <li><strong>Discover：</strong>ユーザーの趣味嗜好に合わせた自動配信</li>
-                  <li><strong>Gmail：</strong>受信ボックス内への広告掲載</li>
-                  <li><strong>Google動画パートナー：</strong>提携サイトでの動画広告</li>
-                </ul>
-              </div>
-              <div>
-                <h4>ターゲティング設定</h4>
-                <p>デマンドジェネレーション広告の特性を活かし、細かなセグメントは行わず、Googleの機械学習による自動最適化を重視します。</p>
-                <ul>
-                  <li><strong>地域：</strong>日本全国（大分県除く）</li>
-                  <li><strong>年齢：</strong>25-54歳</li>
-                  <li><strong>デバイス：</strong>全デバイス対応</li>
-                  <li><strong>最適化：</strong>コンバージョン重視の自動入札</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2>4. クリエイティブ戦略</h2>
-          <div class="card">
-            <h3>メインコピー案</h3>
-            <div class="copy-text">仕事は変えず、暮らしを変える。<br>まずは話を聞いてみませんか？</div>
-            <div class="copy-text">次の住む場所、ワクワクで決めよう。<br>働き心地のA/Bテスト、始めませんか？</div>
-            <div class="copy-text">スキルがあるなら、場所は選べる。<br>どうせなら"ととのう"毎日を。</div>
-          </div>
-        </section>
-
-        <section>
-          <h2>5. 詳細な成果予測</h2>
-          <div class="card">
-            <h3>メインファネル別の期待値（あくまで予測）</h3>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>段階</th>
-                  <th>期待CV数</th>
-                  <th>前段階からのCV率</th>
-                  <th>累計投資額でのCPA</th>
-                  <th>根拠</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>ウェビナー申込</td>
-                  <td>125人</td>
-                  <td>-</td>
-                  <td>¥4,000</td>
-                  <td>デマンドジェン広告の一般的なCPA</td>
-                </tr>
-                <tr>
-                  <td>ウェビナー参加</td>
-                  <td>100人</td>
-                  <td>80%</td>
-                  <td>¥5,000</td>
-                  <td>一般的なウェビナー参加率</td>
-                </tr>
-                <tr>
-                  <td>個別相談申込</td>
-                  <td>50人</td>
-                  <td>50%</td>
-                  <td>¥10,000</td>
-                  <td>再定義ターゲットの高い関心度</td>
-                </tr>
-                <tr style="background-color: #FEF3C7; font-weight: 600;">
-                  <td><strong>実際の移住決定</strong></td>
-                  <td><strong>25人</strong></td>
-                  <td><strong>50%</strong></td>
-                  <td><strong>¥20,000</strong></td>
-                  <td><strong>持続可能なキャリア設計による高い決定率</strong></td>
-                </tr>
-              </tbody>
-            </table>
-            
-            <div class="note note-success">
-              <strong>ターゲット再定義による効果：</strong>大分で持続可能なキャリア形成が可能な層をターゲットにすることで、移住後の満足度向上と長期定着率の改善が期待できます。
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>成功・失敗シナリオ</h3>
-            <div class="grid grid-2">
-              <div>
-                <h4 class="success">理想シナリオ（移住者CPA 15,000円）</h4>
-                <ul>
-                  <li>ウェビナー申込：150人</li>
-                  <li>個別相談申込：60人</li>
-                  <li><strong>移住者：33人（移住者CPA：15,152円）</strong></li>
-                </ul>
-              </div>
-              <div>
-                <h4 class="highlight">最低ラインシナリオ（移住者CPA 33,333円）</h4>
-                <ul>
-                  <li>ウェビナー申込：75人</li>
-                  <li>個別相談申込：30人</li>
-                  <li><strong>移住者：15人（移住者CPA：33,333円）</strong></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2>6. 予備施策：7日間体験移住</h2>
-          <div class="card">
-            <span class="pill pill-option">予備施策</span>
-            <h3>個別相談で移住に迷いがある場合の追加オプション</h3>
-            <p>個別相談の結果、移住に対して不安や迷いを持つ方向けの追加施策として、7日間の体験移住プログラムを用意します。これはメインファネルの計算には含めず、移住決定率向上のサポート施策として位置づけます。</p>
-            
-            <div class="note note-option">
-              <strong>想定対象：</strong>個別相談参加者のうち、移住に興味はあるが決断に迷いがある層（全体の20-30%程度）<br>
-              <strong>実施方法：</strong>住環境・仕事環境・コミュニティを実際に体験できる短期プログラム<br>
-              <strong>効果期待：</strong>体験後の移住決定率70-80%（通常50%→70-80%への改善）
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2>7. 実行スケジュールと判断基準</h2>
-          <div class="card">
-            <h3>3ヶ月実行計画</h3>
-            <div class="flow">
-              <div class="step">
-                <h4>第1ヶ月</h4>
-                <p>SNS動画制作・投稿開始<br>デマンドジェン広告開始<br>初期データ収集</p>
-              </div>
-              <div class="step">
-                <h4>第2ヶ月</h4>
-                <p>高パフォーマンス動画にブースト集中<br>ウェビナー本格開催<br>個別相談開始</p>
-              </div>
-              <div class="step">
-                <h4>第3ヶ月</h4>
-                <p>勝ちパターンに予算集中<br>移住決定促進<br>次期戦略検討</p>
-              </div>
-            </div>
-
-            <h3>継続判断基準</h3>
-            <ul>
-              <li><strong>1ヶ月後：</strong>ウェビナー申込CPA 5,000円以下で継続</li>
-              <li><strong>2ヶ月後：</strong>個別相談CPA 12,000円以下で継続</li>
-              <li><strong>3ヶ月後：</strong>移住者CPA 25,000円以下で次期予算拡大検討</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- 課題感・リスク分析セクション -->
-        <section>
-          <h2>8. 戦略実行における重要課題とリスク分析</h2>
-          <div class="challenge-card">
-            <div class="challenge-title">主要リスク要因</div>
-            
-            <div class="risk-item">
-              <div class="risk-header">リスク1: 専用LP制作の必要性</div>
-              <div class="risk-description">現状のトップページでは、SNS→広告→LP→コンバージョンの導線が最適化されておらず、CVRの大幅な低下が懸念される。</div>
-              <div class="risk-impact"><strong>影響度：</strong>CVR30-50%低下の可能性。目標25人→実際12-17人程度になるリスク</div>
-            </div>
-
-            <div class="risk-item">
-              <div class="risk-header">リスク2: オフライン接点の不足</div>
-              <div class="risk-description">移住は人生の大きな決断であり、SNS上のみの関係構築では信頼関係の形成が困難。現地での人的つながりがない場合、最終的な移住決定に至らない可能性が高い。</div>
-              <div class="risk-impact"><strong>影響度：</strong>個別相談後の移住決定率が50%→20-30%に低下するリスク</div>
-            </div>
-
-            <div class="risk-item">
-              <div class="risk-header">リスク3: ショート動画依存の脆弱性（メディアミックスの掛け算リスク）</div>
-              <div class="risk-description">本戦略は、ショート動画による想起形成→デマンドジェネレーション広告での刈り取りという掛け算構造になっており、一方が失敗すると全体が機能不全に陥る構造的リスクを抱えている。</div>
-              
-              <!-- 数式による説明セクション -->
-              <div style="background: white; border: 2px solid #DC2626; border-radius: 8px; padding: 20px; margin: 16px 0;">
-                <h4 style="color: #DC2626; margin-bottom: 16px; text-align: center;">メディアミックスの掛け算効果とリスク</h4>
-                
-                <div style="font-family: 'Courier New', monospace; font-size: 16px; text-align: center; margin: 16px 0;">
-                  <div style="background: #F0F9FF; padding: 12px; border-radius: 6px; margin: 8px 0;">
-                    <strong>理想シナリオ：</strong><br>
-                    SNS想起効果(10) × デマンドジェン広告効果(5) = <span style="color: #059669; font-weight: bold;">総合効果(50)</span>
-                  </div>
-                  
-                  <div style="background: #FEF2F2; padding: 12px; border-radius: 6px; margin: 8px 0;">
-                    <strong>ショート動画低迷時：</strong><br>
-                    SNS想起効果(1) × デマンドジェン広告効果(5) = <span style="color: #DC2626; font-weight: bold;">総合効果(5)</span>
-                  </div>
-                  
-                  <div style="background: #FEF2F2; padding: 12px; border-radius: 6px; margin: 8px 0;">
-                    <strong>ショート動画完全失敗時：</strong><br>
-                    SNS想起効果(0) × デマンドジェン広告効果(5) = <span style="color: #DC2626; font-weight: bold;">総合効果(0)</span>
-                  </div>
-                </div>
-                
-                <div style="font-size: 14px; color: #374151; margin-top: 16px;">
-                  <strong>具体的影響：</strong>
-                  <ul style="text-align: left; margin: 8px 0; padding-left: 20px;">
-                    <li>ショート動画がバズらない場合：成果が理想の10%程度（移住者2-3人）に激減</li>
-                    <li>ショート動画が完全失敗の場合：デマンドジェン広告も「既視感なし」で効果ゼロ</li>
-                    <li>想起がないため、広告を見ても「知らないブランド」として無視される</li>
-                    <li>40万円（SNS制作+ブースト費用）が実質的に無駄になる可能性</li>
-                  </ul>
-                </div>
-              </div>
-              
-              <div class="risk-impact"><strong>影響度：</strong>ショート動画失敗時は全体戦略の効果が90%以上減少し、移住者獲得が2-3人程度に留まるリスク</div>
-            </div>
-
-            <div class="note note-danger">
-              <strong>総合リスク評価：</strong>上記リスクが複合的に発生した場合、目標25人に対し実際の移住者は2-5人程度に留まる可能性があります。特にショート動画の成功可否が全体戦略の成否を左右する構造的リスクに注意が必要です。
-            </div>
-          </div>
-        </section>
-
-        <div class="result-card">
-          <div class="result-text">最終目標</div>
-          <div class="result-number">25人</div>
-          <p><strong>50万円の投資で25人の移住者獲得</strong><br>
-          1人当たり移住者獲得コスト：20,000円</p>
         </div>
-      </main>
-    </div>
+
+        <div class="card">
+          <h3>成功・失敗シナリオ</h3>
+          <div class="grid grid-2">
+            <div>
+              <h4 class="success">理想シナリオ（移住者CPA 15,000円）</h4>
+              <ul>
+                <li>ウェビナー申込：150人</li>
+                <li>個別相談申込：60人</li>
+                <li><strong>移住者：33人（移住者CPA：15,152円）</strong></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="highlight">最低ラインシナリオ（移住者CPA 33,333円）</h4>
+              <ul>
+                <li>ウェビナー申込：75人</li>
+                <li>個別相談申込：30人</li>
+                <li><strong>移住者：15人（移住者CPA：33,333円）</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>6. 予備施策：7日間体験移住</h2>
+        <div class="card">
+          <span class="pill pill-option">予備施策</span>
+          <h3>個別相談で移住に迷いがある場合の追加オプション</h3>
+          <p>個別相談の結果、移住に対して不安や迷いを持つ方向けの追加施策として、7日間の体験移住プログラムを用意します。これはメインファネルの計算には含めず、移住決定率向上のサポート施策として位置づけます。</p>
+          
+          <div class="note note-option">
+            <strong>想定対象：</strong>個別相談参加者のうち、移住に興味はあるが決断に迷いがある層（全体の20-30%程度）<br>
+            <strong>実施方法：</strong>住環境・仕事環境・コミュニティを実際に体験できる短期プログラム<br>
+            <strong>効果期待：</strong>体験後の移住決定率70-80%（通常50%→70-80%への改善）
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>7. 実行スケジュールと判断基準</h2>
+        <div class="card">
+          <h3>3ヶ月実行計画</h3>
+          <div class="flow">
+            <div class="step">
+              <h4>第1ヶ月</h4>
+              <p>SNS動画制作・投稿開始<br>デマンドジェン広告開始<br>初期データ収集</p>
+            </div>
+            <div class="step">
+              <h4>第2ヶ月</h4>
+              <p>高パフォーマンス動画にブースト集中<br>ウェビナー本格開催<br>個別相談開始</p>
+            </div>
+            <div class="step">
+              <h4>第3ヶ月</h4>
+              <p>勝ちパターンに予算集中<br>移住決定促進<br>次期戦略検討</p>
+            </div>
+          </div>
+
+          <h3>継続判断基準</h3>
+          <ul>
+            <li><strong>1ヶ月後：</strong>ウェビナー申込CPA 5,000円以下で継続</li>
+            <li><strong>2ヶ月後：</strong>個別相談CPA 12,000円以下で継続</li>
+            <li><strong>3ヶ月後：</strong>移住者CPA 25,000円以下で次期予算拡大検討</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 課題感・リスク分析セクション -->
+      <section>
+        <h2>8. 戦略実行における重要課題とリスク分析</h2>
+        <div class="challenge-card">
+          <div class="challenge-title">主要リスク要因</div>
+          
+          <div class="risk-item">
+            <div class="risk-header">リスク1: 専用LP制作の必要性</div>
+            <div class="risk-description">現状のトップページでは、SNS→広告→LP→コンバージョンの導線が最適化されておらず、CVRの大幅な低下が懸念される。</div>
+            <div class="risk-impact"><strong>影響度：</strong>CVR30-50%低下の可能性。目標25人→実際12-17人程度になるリスク</div>
+          </div>
+
+          <div class="risk-item">
+            <div class="risk-header">リスク2: オフライン接点の不足</div>
+            <div class="risk-description">移住は人生の大きな決断であり、SNS上のみの関係構築では信頼関係の形成が困難。現地での人的つながりがない場合、最終的な移住決定に至らない可能性が高い。</div>
+            <div class="risk-impact"><strong>影響度：</strong>個別相談後の移住決定率が50%→20-30%に低下するリスク</div>
+          </div>
+
+          <div class="risk-item">
+            <div class="risk-header">リスク3: ショート動画依存の脆弱性（メディアミックスの掛け算リスク）</div>
+            <div class="risk-description">本戦略は、ショート動画による想起形成→デマンドジェネレーション広告での刈り取りという掛け算構造になっており、一方が失敗すると全体が機能不全に陥る構造的リスクを抱えている。</div>
+            
+            <!-- 数式による説明セクション -->
+            <div style="background: white; border: 2px solid #DC2626; border-radius: 8px; padding: 20px; margin: 16px 0;">
+              <h4 style="color: #DC2626; margin-bottom: 16px; text-align: center;">メディアミックスの掛け算効果とリスク</h4>
+              
+              <div style="font-family: 'Courier New', monospace; font-size: 16px; text-align: center; margin: 16px 0;">
+                <div style="background: #F0F9FF; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                  <strong>理想シナリオ：</strong><br>
+                  SNS想起効果(10) × デマンドジェン広告効果(5) = <span style="color: #059669; font-weight: bold;">総合効果(50)</span>
+                </div>
+                
+                <div style="background: #FEF2F2; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                  <strong>ショート動画低迷時：</strong><br>
+                  SNS想起効果(1) × デマンドジェン広告効果(5) = <span style="color: #DC2626; font-weight: bold;">総合効果(5)</span>
+                </div>
+                
+                <div style="background: #FEF2F2; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                  <strong>ショート動画完全失敗時：</strong><br>
+                  SNS想起効果(0) × デマンドジェン広告効果(5) = <span style="color: #DC2626; font-weight: bold;">総合効果(0)</span>
+                </div>
+              </div>
+              
+              <div style="font-size: 14px; color: #374151; margin-top: 16px;">
+                <strong>具体的影響：</strong>
+                <ul style="text-align: left; margin: 8px 0; padding-left: 20px;">
+                  <li>ショート動画がバズらない場合：成果が理想の10%程度（移住者2-3人）に激減</li>
+                  <li>ショート動画が完全失敗の場合：デマンドジェン広告も「既視感なし」で効果ゼロ</li>
+                  <li>想起がないため、広告を見ても「知らないブランド」として無視される</li>
+                  <li>40万円（SNS制作+ブースト費用）が実質的に無駄になる可能性</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="risk-impact"><strong>影響度：</strong>ショート動画失敗時は全体戦略の効果が90%以上減少し、移住者獲得が2-3人程度に留まるリスク</div>
+          </div>
+
+          <div class="note note-danger">
+            <strong>総合リスク評価：</strong>上記リスクが複合的に発生した場合、目標25人に対し実際の移住者は2-5人程度に留まる可能性があります。特にショート動画の成功可否が全体戦略の成否を左右する構造的リスクに注意が必要です。
+          </div>
+        </div>
+      </section>
+
+      <div class="result-card">
+        <div class="result-text">最終目標</div>
+        <div class="result-number">25人</div>
+        <p><strong>50万円の投資で25人の移住者獲得</strong><br>
+        1人当たり移住者獲得コスト：20,000円</p>
+      </div>
+    </main>
   </div>
 
   <script>
-    // 簡易認証システム
-    function checkPassword() {
-      const password = document.getElementById('passwordInput').value;
-      const correctPassword = 'oita2025'; // パスワードを設定（本来はより複雑にすること）
-      
-      if (password === correctPassword) {
-        document.getElementById('authOverlay').style.display = 'none';
-        document.querySelector('.main-content').style.display = 'block';
-      } else {
-        document.getElementById('errorMessage').textContent = 'パスワードが間違っています。';
-        document.getElementById('passwordInput').value = '';
-      }
-    }
-
-    // Enterキーでログイン
-    document.getElementById('passwordInput').addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        checkPassword();
-      }
-    });
-
     // 右クリック・コピー防止（簡易）
     document.addEventListener('contextmenu', function(e) {
       e.preventDefault();
