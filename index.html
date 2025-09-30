@@ -277,6 +277,62 @@
       color: var(--dark-gray);
     }
 
+    /* 打ち消し線デザイン（廃止施策用） */
+    .deprecated-section {
+      position: relative;
+      opacity: 0.6;
+      color: #888888;
+    }
+
+    .deprecated-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        #DC2626 10%, 
+        #DC2626 90%, 
+        transparent 100%);
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .deprecated-section h2 {
+      position: relative;
+      z-index: 2;
+      text-decoration: line-through;
+      text-decoration-color: #DC2626;
+      text-decoration-thickness: 3px;
+    }
+
+    .deprecated-section .card {
+      position: relative;
+      z-index: 2;
+      background-color: #F9FAFB;
+      border-color: #D1D5DB;
+    }
+
+    .deprecated-section .pill-option {
+      background-color: #F3F4F6;
+      color: #6B7280;
+      border-color: #D1D5DB;
+    }
+
+    .deprecated-badge {
+      display: inline-block;
+      background-color: #DC2626;
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
     /* メインコンテンツ */
     .content {
       padding: 40px 32px;
@@ -678,6 +734,10 @@
       .comparison-table td {
         padding: 8px 6px;
       }
+
+      .deprecated-section::before {
+        height: 2px;
+      }
     }
   </style>
 </head>
@@ -1022,10 +1082,11 @@
         </div>
       </section>
 
-      <section>
-        <h2>6. 予備施策：7日間体験移住</h2>
+      <!-- 廃止施策：7日間体験移住 -->
+      <section class="deprecated-section">
+        <h2>6. 予備施策：7日間体験移住<span class="deprecated-badge">実施困難により廃止</span></h2>
         <div class="card">
-          <span class="pill pill-option">予備施策</span>
+          <span class="pill pill-option">予備施策（廃止）</span>
           <h3>個別相談で移住に迷いがある場合の追加オプション</h3>
           <p>個別相談の結果、移住に対して不安や迷いを持つ方向けの追加施策として、7日間の体験移住プログラムを用意します。これはメインファネルの計算には含めず、移住決定率向上のサポート施策として位置づけます。</p>
           
@@ -1034,11 +1095,96 @@
             <strong>実施方法：</strong>住環境・仕事環境・コミュニティを実際に体験できる短期プログラム<br>
             <strong>効果期待：</strong>体験後の移住決定率70-80%（通常50%→70-80%への改善）
           </div>
+          
+          <div class="note note-danger">
+            <strong>廃止理由：</strong>運営リソースの制約と実施に伴う安全管理・法的責任の問題により、当面の間は実施困難と判断。代替手段として「体験大分ツアー（実費参加）」を実施する方針。
+          </div>
         </div>
       </section>
 
       <section>
-        <h2>7. 実行スケジュールと判断基準</h2>
+        <h2>7. 体験大分ツアー（実費参加・運営同行）</h2>
+        <div class="card">
+          <h3>狙いと前提</h3>
+          <div class="note note-success">
+            <strong>戦略仮説：</strong>移住の意思決定は「実際に来たこと」と「人との接点」に大きく依存するため、運営メンバーが直接同行する実地ツアーを最終コンバージョン手段として実装する。今回はターゲット特性上「仕事マッチング」は一旦省略し、体験と人的つながりにフォーカスする。
+          </div>
+
+          <div class="grid grid-2">
+            <div>
+              <h4>実施コンセプト</h4>
+              <ul>
+                <li>対象：宿泊費・交通費を自己負担できる一定所得の層（実費参加）</li>
+                <li>内容：運営メンバー最大2名が同行する少人数ツアー（参加者最大6名）</li>
+                <li>目的：候補者の最終意思決定を後押しする「決定打」の提供</li>
+              </ul>
+            </div>
+            <div>
+              <h4>想定メリット</h4>
+              <ul>
+                <li>「来たことがある」を作り、心理的ハードルを解消</li>
+                <li>運営・先輩移住者との直接接点で信頼形成を加速</li>
+                <li>オンライン情報では得られない生活実感を提供</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>ツアー構成（1泊2日例）</h3>
+          <div class="grid grid-3">
+            <div class="note">
+              <strong>Day1（午後）｜都市・仕事文脈</strong><br>
+              大分駅周辺〜コワーキング見学〜実務可能スポット〜夕食交流会（先輩移住者合流）
+            </div>
+            <div class="note">
+              <strong>Day2（午前）｜暮らし文脈</strong><br>
+              住環境（賃貸/空き家バンク）見学〜生活導線（スーパー/医療/教育/温泉）体験
+            </div>
+            <div class="note">
+              <strong>Day2（午後）｜将来像の言語化</strong><br>
+              運営メンバーとの1on1壁打ち〜移住判断フレーム配布〜次アクション合意
+            </div>
+          </div>
+
+          <h3>費用と運用（実費参加型）</h3>
+          <ul>
+            <li>参加者負担：交通費＋宿泊費（目安：新幹線/航空＋地域宿泊）</li>
+            <li>運営負担：同行人件・現地手配・会場/移動のアテンド（必要に応じて軽食/会場費）</li>
+            <li>コスト最適化：体験宿泊施設/提携宿の活用で宿泊単価を圧縮、共同移動で現地交通を効率化</li>
+          </ul>
+
+          <h3>導線と対象者の絞り込み</h3>
+          <ul>
+            <li>導線：個別相談→適合度ヒアリング→ツアー打診→日程/費用合意→参加</li>
+            <li>対象基準：大分での生活像が具体化している/リモート継続や収入の見込みがある/意思決定予定が3ヶ月以内</li>
+            <li>定員運用：月1回・各回最大6名目安（少人数高密度で信頼形成を優先）</li>
+            <li>運営体制：運営メンバー最大2名同行（人件費とアテンド品質のバランス重視）</li>
+          </ul>
+
+          <h3>期待効果</h3>
+          <div class="note note-info">
+            <strong>意思決定率の上振れ：</strong>ツアー参加者の移住決定率は通常の個別相談後50%に対し、60〜75%を目安に想定（現地体験と人的接点の効果）。
+          </div>
+
+          <h3>ガバナンスとリスク配慮</h3>
+          <ul>
+            <li>透明性：実費負担の範囲を事前明記（交通/宿泊/食事/体験費の内訳テンプレ付与）</li>
+            <li>安全管理：少人数制・緊急連絡先・参加同意書（免責/行動規範）</li>
+            <li>過度な営業化回避：判断の尊重を最優先、案内と情報提供に徹する</li>
+          </ul>
+
+          <div class="note note-warning">
+            <strong>補足：</strong>ターゲット層は一定の所得が見込めるため、実費参加は大きな障壁になりにくい。一方で費用可視化と体験価値の事前提示（行程表・見学先・同行者プロフィール）は必須。
+          </div>
+
+          <div class="copy-text" style="margin-top:12px;">
+            実費参加の少人数ツアーで、大分の「暮らし」と「人」を体感しませんか？<br>
+            参加条件と日程の候補は個別相談でご案内します。
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>8. 実行スケジュールと判断基準</h2>
         <div class="card">
           <h3>3ヶ月実行計画</h3>
           <div class="flow">
@@ -1067,7 +1213,7 @@
 
       <!-- 課題感・リスク分析セクション -->
       <section>
-        <h2>8. 戦略実行における重要課題とリスク分析</h2>
+        <h2>9. 戦略実行における重要課題とリスク分析</h2>
         <div class="challenge-card">
           <div class="challenge-title">主要リスク要因</div>
           
