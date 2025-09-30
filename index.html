@@ -554,6 +554,59 @@
       border-left: 3px solid var(--primary-color);
     }
 
+    /* スケジュールテーブル（新規追加）*/
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .schedule-table th {
+      background: linear-gradient(135deg, var(--success-color), #34C759);
+      color: white;
+      padding: 16px 12px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .schedule-table td {
+      padding: 16px 12px;
+      border: 1px solid var(--border-color);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .schedule-table tr:nth-child(even) {
+      background-color: #FAFAFA;
+    }
+
+    .schedule-table .task-cell {
+      background-color: var(--light-gray);
+      font-weight: 600;
+      color: var(--dark-gray);
+      width: 35%;
+    }
+
+    .schedule-table .date-cell {
+      text-align: center;
+      font-family: 'Courier New', monospace;
+      width: 32.5%;
+    }
+
+    .schedule-table .critical-row {
+      background-color: #FEF3C7 !important;
+      font-weight: 600;
+    }
+
+    .schedule-table .launch-row {
+      background-color: #ECFDF5 !important;
+      font-weight: 600;
+      color: var(--success-color);
+    }
+
     /* 簡単な成果予測テーブル */
     .simple-table {
       width: 100%;
@@ -726,12 +779,15 @@
         font-size: 24px;
       }
 
-      .comparison-table {
+      .comparison-table,
+      .schedule-table {
         font-size: 12px;
       }
 
       .comparison-table th,
-      .comparison-table td {
+      .comparison-table td,
+      .schedule-table th,
+      .schedule-table td {
         padding: 8px 6px;
       }
 
@@ -967,6 +1023,36 @@
               <p class="note">YouTube・Discover・Gmail配信で「やってみたい」気持ちを行動に転換</p>
             </div>
           </div>
+
+          <h3>SNS導線設計：LINEマーケティング活用による関係構築</h3>
+          <p>従来のSNSフォロー型から、よりクローズドで継続的な関係構築が可能なLINE公式アカウントを中心とした導線設計を検討中です。</p>
+          
+          <div class="grid grid-2">
+            <div>
+              <h4>LINEステップ配信シナリオ（検討中）</h4>
+              <ul>
+                <li><strong>Day1-3：</strong>移住の不安解消シリーズ（先輩移住者の体験談配信）</li>
+                <li><strong>Day4-7：</strong>大分の魅力発信（仕事環境・生活コスト・地域コミュニティ）</li>
+                <li><strong>Day8-14：</strong>具体的移住プロセス解説（準備期間・手続き・タイムライン）</li>
+                <li><strong>Day15以降：</strong>週1回の移住関連情報配信と個別相談誘導</li>
+              </ul>
+            </div>
+            <div>
+              <h4>LINEリッチメニュー構成（検討中）</h4>
+              <ul>
+                <li><strong>移住相談：</strong>個別相談申込フォームへの直接誘導</li>
+                <li><strong>体験談：</strong>移住者インタビュー動画・記事へのアクセス</li>
+                <li><strong>説明会：</strong>ウェビナー申込と過去開催分のアーカイブ</li>
+                <li><strong>コミュニティ：</strong>移住検討者同士の交流グループへの参加</li>
+                <li><strong>FAQ：</strong>よくある質問と回答集</li>
+                <li><strong>最新情報：</strong>大分の求人情報・住宅情報の定期更新</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="note note-info">
+            <strong>LINE活用の戦略的メリット：</strong>①SNSアルゴリズムに左右されない直接的なコミュニケーション ②開封率の高さ（メール比約3-5倍） ③リッチメニューによる多角的な情報提供 ④ステップ配信による段階的な関係構築 ⑤ユーザーの反応データに基づく個別最適化が可能
+          </div>
         </div>
       </section>
 
@@ -1184,30 +1270,61 @@
       </section>
 
       <section>
-        <h2>8. 実行スケジュールと判断基準</h2>
+        <h2>8. 実行スケジュール</h2>
         <div class="card">
-          <h3>3ヶ月実行計画</h3>
-          <div class="flow">
-            <div class="step">
-              <h4>第1ヶ月</h4>
-              <p>SNS動画制作・投稿開始<br>デマンドジェン広告開始<br>初期データ収集</p>
-            </div>
-            <div class="step">
-              <h4>第2ヶ月</h4>
-              <p>高パフォーマンス動画にブースト集中<br>ウェビナー本格開催<br>個別相談開始</p>
-            </div>
-            <div class="step">
-              <h4>第3ヶ月</h4>
-              <p>勝ちパターンに予算集中<br>移住決定促進<br>次期戦略検討</p>
-            </div>
-          </div>
+          <h3>10月6日（月）広告配信開始目標：超短期集中スケジュール</h3>
+          <p>9月30日から10月6日に広告配信開始を目指す超タイトな進行管理の全体像です。各タスクの遅延が全体スケジュールに波及するため、即断即決と並列作業を徹底してください。</p>
 
-          <h3>継続判断基準</h3>
-          <ul>
-            <li><strong>1ヶ月後：</strong>ウェビナー申込CPA 5,000円以下で継続</li>
-            <li><strong>2ヶ月後：</strong>個別相談CPA 12,000円以下で継続</li>
-            <li><strong>3ヶ月後：</strong>移住者CPA 25,000円以下で次期予算拡大検討</li>
-          </ul>
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>タスク名</th>
+                <th>開始日</th>
+                <th>終了日</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="critical-row">
+                <td class="task-cell"><strong>CV用動画 企画・構成決定</strong></td>
+                <td class="date-cell">2025-09-29</td>
+                <td class="date-cell">2025-09-29</td>
+              </tr>
+              <tr class="critical-row">
+                <td class="task-cell"><strong>CV用動画 撮影</strong></td>
+                <td class="date-cell">2025-09-30</td>
+                <td class="date-cell">2025-09-30</td>
+              </tr>
+              <tr>
+                <td class="task-cell">動画編集・修正（CV用のみ）</td>
+                <td class="date-cell">2025-10-01</td>
+                <td class="date-cell">2025-10-02</td>
+              </tr>
+              <tr>
+                <td class="task-cell">LP制作（デザイン・コーディング）</td>
+                <td class="date-cell">2025-10-01</td>
+                <td class="date-cell">2025-10-01</td>
+              </tr>
+              <tr>
+                <td class="task-cell">広告クリエイティブ制作</td>
+                <td class="date-cell">2025-10-02</td>
+                <td class="date-cell">2025-10-04</td>
+              </tr>
+              <tr>
+                <td class="task-cell">広告入稿・審査・技術設定</td>
+                <td class="date-cell">2025-10-04</td>
+                <td class="date-cell">2025-10-05</td>
+              </tr>
+              <tr class="launch-row">
+                <td class="task-cell"><strong>広告配信開始</strong></td>
+                <td class="date-cell"><strong>2025-10-06</strong></td>
+                <td class="date-cell"><strong>2025-10-31</strong></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="note note-danger">
+            <strong>スケジュール達成の絶対条件：</strong>①CV用動画の本日中（9/30）撮影完了 ②各工程でのフィードバックを数時間以内に実施 ③LPは1日制作（シンプル構成限定） ④週末作業の許容 ⑤修正は各工程1回限り
+          </div>
         </div>
       </section>
 
@@ -1225,8 +1342,14 @@
 
           <div class="risk-item">
             <div class="risk-header">リスク2: オフライン接点の不足</div>
-            <div class="risk-description">移住は人生の大きな決断であり、SNS上のみの関係構築では信頼関係の形成が困難。現地での人的つながりがない場合、最終的な移住決定に至らない可能性が高い。</div>
-            <div class="risk-impact"><strong>影響度：</strong>個別相談後の移住決定率が50%→20-30%に低下するリスク</div>
+            <div class="risk-description">
+              移住は人生の大きな決断であり、SNS上のみの関係構築では信頼関係の形成が困難。現地での人的つながりがない場合、最終的な移住決定に至らない可能性が高い。
+              <br><br>
+              <div class="note note-info" style="margin-top: 12px;">
+                <strong>【補足】</strong>現在はオンライン中心の設計ですが、SNS経由で十分な申込リストが獲得できた地域については、オフライン＋オンライン併用のハイブリッド型説明会も戦略オプションとして今後段階的に検討します（例：参加見込10名以上の都市で限定現地開催など）
+              </div>
+            </div>
+            <div class="risk-impact"><strong>影響度：</strong>個別相談後の移住決定率が50%→20-30%に低下するリスク。ただしハイブリッド説明会導入により補完可能性あり。</div>
           </div>
 
           <div class="risk-item">
