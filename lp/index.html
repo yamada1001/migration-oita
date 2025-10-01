@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="同じ働き方で、もっと豊かに。大分IT移住プロジェクト">
+  <title>大分IT移住プロジェクト | 同じ働き方で、もっと豊かに</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-primary: #FF0066;
+      --color-secondary: #6366F1;
+      --color-accent: #10B981;
+      --color-dark: #0F172A;
+      --color-gray: #64748B;
+      --color-light: #F8FAFC;
+    }
+
+    body {
+      font-family: 'Inter', 'Noto Sans JP', sans-serif;
+      color: var(--color-dark);
+      background: #FFFFFF;
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      letter-spacing: 0.02em; /* 全体的に文字間隔を広く */
+    }
+
+    /* ヘッダー */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    header.scrolled {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.05em; /* より広く */
+      color: var(--color-dark);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .header-cta {
+      background: var(--color-dark);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em; /* より広く */
+      transition: all 0.3s;
+    }
+
+    .header-cta:hover {
+      background: var(--color-primary);
+      transform: scale(1.05);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(-50px, -50px) rotate(180deg); }
+    }
+
+    .hero-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em; /* より広く */
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 32px;
+      padding: 8px 20px;
+      border: 1.5px solid var(--color-primary);
+      border-radius: 100px;
+    }
+
+    .hero-title {
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: 0.02em; /* より広く（元は-0.04em） */
+      margin-bottom: 32px;
+      max-width: 900px;
+    }
+
+    .hero-title .gradient-text {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-description {
+      font-size: 20px;
+      color: var(--color-gray);
+      max-width: 600px;
+      margin-bottom: 48px;
+      line-height: 1.8;
+      font-weight: 500;
+      letter-spacing: 0.04em; /* より広く */
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--color-dark);
+      color: white;
+      padding: 18px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: 0.05em; /* より広く */
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .hero-cta:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      background: var(--color-primary);
+    }
+
+    /* 動画セクション */
+    .video-section {
+      max-width: 1400px;
+      margin: -100px auto 0;
+      padding: 0 40px 120px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .video-container {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
+      background: #E2E8F0;
+      aspect-ratio: 16 / 9;
+    }
+
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--color-gray);
+      letter-spacing: 0.05em;
+    }
+
+    /* Bento Grid Layout */
+    .bento-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 120px 40px;
+    }
+
+    .section-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      letter-spacing: 0.01em; /* より広く（元は-0.03em） */
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: var(--color-gray);
+      margin-bottom: 64px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+
+    .bento-item {
+      background: white;
+      border-radius: 24px;
+      padding: 48px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bento-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+      border-color: var(--color-primary);
+    }
+
+    .bento-item.large {
+      grid-column: span 8;
+    }
+
+    .bento-item.medium {
+      grid-column: span 6;
+    }
+
+    .bento-item.small {
+      grid-column: span 4;
+    }
+
+    .bento-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bento-item h3 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      letter-spacing: 0.01em;
+    }
+
+    .bento-item p {
+      color: var(--color-gray);
+      line-height: 1.8;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    .bento-stat {
+      font-size: 56px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+
+    .bento-stat-label {
+      font-size: 14px;
+      color: var(--color-gray);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em; /* より広く */
+    }
+
+    .bento-stat-detail {
+      font-size: 13px;
+      color: var(--color-gray);
+      margin-top: 8px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    /* 2カラムセクション */
+    .split-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 120px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .split-content h2 {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      margin-bottom: 24px;
+    }
+
+    .split-content p {
+      font-size: 18px;
+      color: var(--color-gray);
+      line-height: 1.8;
+      margin-bottom: 32px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    .split-visual {
+      background: linear-gradient(135deg, #E0E7FF, #FAE8FF);
+      border-radius: 24px;
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gray);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    /* SNS Grid */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1400px;
+      margin: 80px auto;
+      padding: 0 40px;
+    }
+
+    .social-card {
+      background: white;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 20px;
+      padding: 40px 32px;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .social-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+      border-color: var(--color-primary);
+    }
+
+    .social-card svg {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 20px;
+    }
+
+    .social-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .social-card p {
+      font-size: 14px;
+      color: var(--color-gray);
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    /* リールグリッド */
+    .reel-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      max-width: 1400px;
+      margin: 80px auto;
+      padding: 0 40px;
+    }
+
+    .reel-item {
+      aspect-ratio: 9 / 16;
+      background: linear-gradient(135deg, #E0E7FF, #FAE8FF);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-gray);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      transition: all 0.4s;
+    }
+
+    .reel-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    /* FAQ */
+    .faq-section {
+      max-width: 900px;
+      margin: 120px auto;
+      padding: 0 40px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 32px 0;
+    }
+
+    .faq-question {
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: color 0.3s;
+      letter-spacing: 0.02em;
+    }
+
+    .faq-question:hover {
+      color: var(--color-primary);
+    }
+
+    .faq-icon {
+      font-size: 24px;
+      transition: transform 0.3s;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding-top: 0;
+      color: var(--color-gray);
+      font-weight: 500;
+      line-height: 1.8;
+      letter-spacing: 0.03em;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding-top: 20px;
+    }
+
+    /* CTA Section */
+    .final-cta {
+      background: var(--color-dark);
+      color: white;
+      text-align: center;
+      padding: 120px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 0, 102, 0.3) 0%, transparent 70%);
+    }
+
+    .final-cta h2 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-cta p {
+      font-size: 18px;
+      opacity: 0.8;
+      margin-bottom: 48px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: white;
+      color: var(--color-dark);
+      padding: 20px 48px;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 0.05em;
+      transition: all 0.4s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 60px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--color-dark);
+      color: white;
+      text-align: center;
+      padding: 40px;
+      font-size: 14px;
+      opacity: 0.6;
+      letter-spacing: 0.05em;
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 1024px) {
+      .bento-item.large,
+      .bento-item.medium,
+      .bento-item.small {
+        grid-column: span 12;
+      }
+
+      .split-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .social-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .reel-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-inner,
+      .hero,
+      .video-section,
+      .bento-section,
+      .social-grid,
+      .reel-grid,
+      .faq-section,
+      .final-cta {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero-title {
+        font-size: 48px;
+      }
+
+      .bento-item {
+        padding: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="header-inner">
+      <a href="#" class="logo">Oita Migration</a>
+      <a href="#cta" class="header-cta">LINE相談</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-label">Oita IT Migration Project</div>
+      <h1 class="hero-title">
+        同じ働き方で、<br>
+        <span class="gradient-text">もっと豊かに。</span>
+      </h1>
+      <p class="hero-description">
+        すでに自由な働き方を手に入れたあなたへ。<br>
+        その自由を、もっとコスパよく、もっと充実させる選択肢がここに。
+      </p>
+      <a href="#video" class="hero-cta">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M5 3L15 10L5 17V3Z" fill="currentColor"/>
+        </svg>
+        動画を見る
+      </a>
+    </div>
+  </section>
+
+  <!-- Video -->
+  <div class="video-section" id="video">
+    <div class="video-container">
+      <div class="video-placeholder">メインムービー</div>
+    </div>
+  </div>
+
+  <!-- About Bento Grid -->
+  <section class="bento-section">
+    <h2 class="section-title">なぜ、大分なのか</h2>
+    <p class="section-subtitle">数字で見る、移住の価値</p>
+    <div class="bento-grid">
+      <div class="bento-item large">
+        <div class="bento-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" stroke-width="2"/>
+            <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2"/>
+            <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3>すでにリモートワークで稼いでいるあなたへ</h3>
+        <p>フリーランス・副業・フルリモート正社員として収入を得ている。この働き方を変えずに、生活コストだけを最適化したい方のためのプロジェクトです。</p>
+      </div>
+      <div class="bento-item small">
+        <div class="bento-stat">約60%</div>
+        <div class="bento-stat-label">住居費ダウン</div>
+        <div class="bento-stat-detail">東京15万円→大分6万円（2LDK平均）</div>
+      </div>
+      <div class="bento-item medium">
+        <h3>高い家賃に疑問を感じている</h3>
+        <p>東京で月15万円の家賃を払いながら「これって本当に合理的？」と感じている。同じ収入なら、もっと広くて快適な住環境が手に入るはず。</p>
+      </div>
+      <div class="bento-item medium">
+        <h3>豊かな生活環境を求めている</h3>
+        <p>温泉、海、山。自然豊かな環境での生活に憧れがある。でも仕事は変えたくない。そんな「いいとこ取り」を実現したい。</p>
+      </div>
+      <div class="bento-item small">
+        <div class="bento-stat">月6万円</div>
+        <div class="bento-stat-label">大分の平均家賃</div>
+        <div class="bento-stat-detail">2LDK / 東京は月15万円</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Split Section -->
+  <section class="split-section">
+    <div class="split-content">
+      <h2>即日から使える<br>コミュニティ</h2>
+      <p>移住者ネットワークと運営メンバーのサポートで、初日から仕事の壁打ち相手やビジネスパートナーが見つかる。孤独感ゼロでスタートできます。</p>
+      <p>大分県・市が後援するプロジェクトの一員として、地域社会での信頼を最初から獲得。地場企業との接点も作りやすく、新しいビジネスチャンスも。</p>
+    </div>
+    <div class="split-visual">大分ライフイメージ</div>
+  </section>
+
+  <!-- Social -->
+  <section>
+    <div style="max-width: 1400px; margin: 0 auto; padding: 0 40px;">
+      <h2 class="section-title">SNSで発信中</h2>
+      <p class="section-subtitle">移住のリアルを毎日配信</p>
+    </div>
+    <div class="social-grid">
+      <a href="#" class="social-card">
+        <svg viewBox="0 0 64 64" fill="none">
+          <rect width="64" height="64" rx="12" fill="url(#ig)"/>
+          <rect x="18" y="18" width="28" height="28" rx="6" stroke="white" stroke-width="3" fill="none"/>
+          <circle cx="32" cy="32" r="7" stroke="white" stroke-width="3" fill="none"/>
+          <circle cx="42" cy="22" r="2" fill="white"/>
+          <defs>
+            <linearGradient id="ig" x1="0" y1="0" x2="64" y2="64">
+              <stop offset="0%" stop-color="#FF0066"/>
+              <stop offset="100%" stop-color="#6366F1"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <h3>Instagram</h3>
+        <p>日常を発信</p>
+      </a>
+      <a href="#" class="social-card">
+        <svg viewBox="0 0 64 64" fill="none">
+          <rect width="64" height="64" rx="12" fill="#000"/>
+          <path d="M32 20L36 28L44 32L36 36L32 44L28 36L20 32L28 28L32 20Z" fill="white"/>
+        </svg>
+        <h3>TikTok</h3>
+        <p>リールで配信</p>
+      </a>
+      <a href="#" class="social-card">
+        <svg viewBox="0 0 64 64" fill="none">
+          <rect width="64" height="64" rx="12" fill="#FF0000"/>
+          <path d="M26 24L38 32L26 40V24Z" fill="white"/>
+        </svg>
+        <h3>YouTube</h3>
+        <p>詳しく解説</p>
+      </a>
+    </div>
+    <div class="reel-grid">
+      <div class="reel-item">Reel 1</div>
+      <div class="reel-item">Reel 2</div>
+      <div class="reel-item">Reel 3</div>
+      <div class="reel-item">Reel 4</div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <h2 class="section-title">よくある質問</h2>
+    <div style="margin-top: 64px;">
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>移住にかかる費用は？</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          引っ越し費用10〜30万円、初期費用20〜40万円が一般的です。大分県・市の支援金制度も活用できます。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>リモートワークは継続できる？</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          はい。大分市内にはコワーキングスペースも複数あり、高速インターネット環境も整っています。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>見学はできますか？</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          実費負担での体験ツアーやオンライン相談を実施しています。
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <span>コミュニティはありますか？</span>
+          <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          移住者コミュニティが活発に活動中。定期的な交流会や勉強会を開催しています。
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta" id="cta">
+    <h2>LINEで気軽に<br>相談してみませんか？</h2>
+    <p>あなたの「もっと豊かな暮らし」を全力でサポートします。</p>
+    <a href="https://line.me/R/ti/p/" class="final-cta-button">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M19 11C19 7.134 15.866 4 12 4C8.134 4 5 7.134 5 11C5 14.411 7.462 17.223 10.704 17.827C11.014 17.897 11.435 18.027 11.542 18.276C11.639 18.502 11.607 18.879 11.576 19.108L11.455 19.881C11.421 20.088 11.301 20.654 12 20.363C12.699 20.072 15.737 18.231 17.289 16.461C18.386 15.247 19 13.696 19 11Z" fill="currentColor"/>
+      </svg>
+      LINEで相談する
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 OITA IT MIGRATION PROJECT</p>
+  </footer>
+
+  <script>
+    // Header scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+        if (!isActive) item.classList.add('active');
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
