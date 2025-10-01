@@ -16,7 +16,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="https://migration.oita-creative.jp/wp-content/themes/absolute5-oca-migration/img/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="https://migration.oita-creative.jp/wp-content/themes/absolute5-oca-migration/img/favicon/favicon-16x16.png">
   
-  <!-- OGP (Open Graph Protocol) -->
+  <!-- OGP -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="大分IT移住プロジェクト | 同じ働き方で、もっと豊かに">
   <meta property="og:description" content="すでに自由な働き方を手に入れたあなたへ。その自由を、もっとコスパよく、もっと充実させる選択肢がここに。">
@@ -29,7 +29,7 @@
   <meta name="twitter:title" content="大分IT移住プロジェクト | 同じ働き方で、もっと豊かに">
   <meta name="twitter:description" content="すでに自由な働き方を手に入れたあなたへ。その自由を、もっとコスパよく、もっと充実させる選択肢がここに。">
   
-  <!-- 構造化データ (JSON-LD) -->
+  <!-- 構造化データ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -44,9 +44,8 @@
       "addressCountry": "JP"
     },
     "sameAs": [
-      "https://www.instagram.com/oita_migration/",
-      "https://www.tiktok.com/@oita_migration",
-      "https://www.youtube.com/@oita_migration"
+      "https://www.instagram.com/oita_creative_academy/",
+      "https://www.youtube.com/@OitaITMigrationProject"
     ]
   }
   </script>
@@ -146,7 +145,6 @@
       letter-spacing: 0.02em;
     }
 
-    /* ヘッダー */
     header {
       position: fixed;
       top: 0;
@@ -203,12 +201,11 @@
       transform: scale(1.05);
     }
 
-    /* Hero Section */
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 120px 40px 80px;
+      padding: 120px 40px 40px;
       position: relative;
       overflow: hidden;
     }
@@ -298,10 +295,48 @@
       background: var(--color-primary);
     }
 
-    /* 動画セクション */
+    /* 公式ロゴバッジ - サイズアップ版 */
+    .official-badge {
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .official-badge-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-gray);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .official-logos {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .official-logo {
+      height: 64px;
+      width: auto;
+      opacity: 0.85;
+      transition: opacity 0.3s, transform 0.3s;
+      object-fit: contain;
+    }
+
+    .official-logo:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
     .video-section {
       max-width: 1400px;
-      margin: -100px auto 0;
+      margin: -40px auto 0;
       padding: 0 40px 120px;
       position: relative;
       z-index: 10;
@@ -327,7 +362,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* Bento Grid Layout */
     .bento-section {
       max-width: 1400px;
       margin: 0 auto;
@@ -434,7 +468,6 @@
       letter-spacing: 0.03em;
     }
 
-    /* 2カラムセクション */
     .split-section {
       max-width: 1400px;
       margin: 0 auto;
@@ -473,7 +506,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* SNS Grid */
     .social-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -520,7 +552,6 @@
       letter-spacing: 0.03em;
     }
 
-    /* リールグリッド */
     .reel-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -549,7 +580,6 @@
       box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
     }
 
-    /* FAQ */
     .faq-section {
       max-width: 900px;
       margin: 120px auto;
@@ -601,7 +631,6 @@
       padding-top: 20px;
     }
 
-    /* CTA Section */
     .final-cta {
       background: var(--color-dark);
       color: white;
@@ -662,7 +691,6 @@
       box-shadow: 0 20px 60px rgba(255, 255, 255, 0.3);
     }
 
-    /* Footer */
     footer {
       background: var(--color-dark);
       color: white;
@@ -673,7 +701,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* レスポンシブ */
     @media (max-width: 1024px) {
       .bento-item.large,
       .bento-item.medium,
@@ -715,11 +742,23 @@
       .bento-item {
         padding: 32px;
       }
+
+      .official-badge {
+        margin-top: 60px;
+        padding-top: 30px;
+      }
+
+      .official-logos {
+        gap: 32px;
+      }
+
+      .official-logo {
+        height: 48px;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header id="header">
     <div class="header-inner">
       <a href="https://migration.oita-creative.jp/" class="logo">Oita Migration</a>
@@ -727,7 +766,6 @@
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-label">Oita IT Migration Project</div>
@@ -745,17 +783,23 @@
         </svg>
         動画を見る
       </a>
+
+      <div class="official-badge">
+        <div class="official-badge-label">Supported by</div>
+        <div class="official-logos">
+          <img src="https://www.pref.oita.jp/uploaded/image/110023.gif" alt="大分県" class="official-logo">
+          <img src="https://www.pref.oita.jp/uploaded/image/2013328.jpg" alt="大分県" class="official-logo">
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Video -->
   <div class="video-section" id="video">
     <div class="video-container">
       <div class="video-placeholder">メインムービー</div>
     </div>
   </div>
 
-  <!-- About Bento Grid -->
   <section class="bento-section">
     <h2 class="section-title">なぜ、大分なのか</h2>
     <p class="section-subtitle">数字で見る、移住の価値</p>
@@ -768,7 +812,7 @@
             <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2"/>
           </svg>
         </div>
-        <h3>すでにリモートワークで稼いでいるあなたへ</h3>
+        <h3>場所に縛られない働き方を、もっと豊かに</h3>
         <p>フリーランス・副業・フルリモート正社員として収入を得ている。この働き方を変えずに、生活コストだけを最適化したい方のためのプロジェクトです。</p>
       </div>
       <div class="bento-item small">
@@ -792,7 +836,6 @@
     </div>
   </section>
 
-  <!-- Split Section -->
   <section class="split-section">
     <div class="split-content">
       <h2>即日から使える<br>コミュニティ</h2>
@@ -802,14 +845,13 @@
     <div class="split-visual">大分ライフイメージ</div>
   </section>
 
-  <!-- Social -->
   <section>
     <div style="max-width: 1400px; margin: 0 auto; padding: 0 40px;">
       <h2 class="section-title">SNSで発信中</h2>
       <p class="section-subtitle">移住のリアルを毎日配信</p>
     </div>
     <div class="social-grid">
-      <a href="#" class="social-card">
+      <a href="https://www.instagram.com/oita_creative_academy/" target="_blank" rel="noopener" class="social-card">
         <svg viewBox="0 0 64 64" fill="none">
           <rect width="64" height="64" rx="12" fill="url(#ig)"/>
           <rect x="18" y="18" width="28" height="28" rx="6" stroke="white" stroke-width="3" fill="none"/>
@@ -833,7 +875,7 @@
         <h3>TikTok</h3>
         <p>リールで配信</p>
       </a>
-      <a href="#" class="social-card">
+      <a href="https://www.youtube.com/@OitaITMigrationProject" target="_blank" rel="noopener" class="social-card">
         <svg viewBox="0 0 64 64" fill="none">
           <rect width="64" height="64" rx="12" fill="#FF0000"/>
           <path d="M26 24L38 32L26 40V24Z" fill="white"/>
@@ -850,7 +892,6 @@
     </div>
   </section>
 
-  <!-- FAQ -->
   <section class="faq-section">
     <h2 class="section-title">よくある質問</h2>
     <div style="margin-top: 64px;">
@@ -893,7 +934,6 @@
     </div>
   </section>
 
-  <!-- Final CTA -->
   <section class="final-cta" id="cta">
     <h2>LINEで気軽に<br>相談してみませんか？</h2>
     <p>あなたの「もっと豊かな暮らし」を全力でサポートします。</p>
@@ -905,18 +945,15 @@
     </a>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 OITA IT MIGRATION PROJECT</p>
   </footer>
 
   <script>
-    // Header scroll
     window.addEventListener('scroll', () => {
       document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // FAQ accordion
     document.querySelectorAll('.faq-question').forEach(q => {
       q.addEventListener('click', () => {
         const item = q.parentElement;
@@ -926,7 +963,6 @@
       });
     });
 
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         e.preventDefault();
