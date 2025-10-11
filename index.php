@@ -1,1 +1,1425 @@
-<?php echo "Hello, WordPress!"; ?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <title>大分IT移住プロジェクト｜メディアミックス戦略提案書（機密資料）</title>
+  <style>
+    /* CSS変数定義 */
+    :root {
+      --primary-color: #2563EB;
+      --primary-light: #3B82F6;
+      --text-color: #1F2937;
+      --bg-color: #F8FAFC;
+      --border-color: #E5E7EB;
+      --accent-color: #DC2626;
+      --success-color: #059669;
+      --info-color: #0284C7;
+      --warning-color: #D97706;
+      --danger-color: #DC2626;
+      --light-gray: #F3F4F6;
+      --medium-gray: #6B7280;
+      --dark-gray: #374151;
+      --white: #FFFFFF;
+    }
+
+    /* リセットとベース設定 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      padding: 20px;
+    }
+
+    /* メインコンテナ */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    /* 機密表示 */
+    .confidential {
+      background-color: #DC2626;
+      color: white;
+      text-align: center;
+      padding: 8px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    /* ヘッダー - 視認性改善 */
+    .header {
+      background-color: var(--white);
+      color: var(--text-color);
+      padding: 48px 32px 40px;
+      text-align: center;
+      border-bottom: 3px solid var(--primary-color);
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+      color: var(--text-color);
+    }
+
+    .header p {
+      font-size: 18px;
+      color: var(--medium-gray);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* 予算概要カード */
+    .budget-overview {
+      background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+      border: 2px solid var(--warning-color);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px;
+      text-align: center;
+    }
+
+    .budget-overview h2 {
+      font-size: 24px;
+      color: var(--dark-gray);
+      margin-bottom: 16px;
+    }
+
+    .budget-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .budget-item {
+      background: white;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .budget-number {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .budget-label {
+      font-size: 14px;
+      color: var(--medium-gray);
+      margin-top: 4px;
+    }
+
+    /* 課題感カード */
+    .challenge-card {
+      background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%);
+      border: 2px solid var(--danger-color);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px;
+      text-align: left;
+    }
+
+    .challenge-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--danger-color);
+      margin-bottom: 24px;
+      text-align: center;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--danger-color);
+    }
+
+    .risk-item {
+      background: white;
+      border: 1px solid #FCA5A5;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 16px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .risk-header {
+      font-weight: 600;
+      color: var(--danger-color);
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .risk-description {
+      color: var(--dark-gray);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .risk-impact {
+      background-color: #FEF2F2;
+      border-left: 4px solid var(--danger-color);
+      padding: 12px;
+      font-size: 14px;
+      color: var(--dark-gray);
+    }
+
+    /* フェルミ推定カード - 大幅改善 */
+    .fermi-card {
+      background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+      border: 2px solid var(--info-color);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px;
+      text-align: left;
+    }
+
+    .fermi-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--info-color);
+      margin-bottom: 24px;
+      text-align: center;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--info-color);
+    }
+
+    .fermi-steps {
+      display: grid;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .fermi-step {
+      background: white;
+      border: 1px solid #B3E5FC;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .step-label {
+      font-weight: 600;
+      color: var(--info-color);
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .step-calculation {
+      font-family: 'Courier New', monospace;
+      font-size: 15px;
+      color: var(--dark-gray);
+      margin: 8px 0;
+      line-height: 1.6;
+    }
+
+    .step-result {
+      font-weight: 600;
+      color: var(--text-color);
+      font-size: 16px;
+      margin-top: 12px;
+      padding: 8px 12px;
+      background-color: #E3F2FD;
+      border-radius: 6px;
+    }
+
+    .fermi-formula {
+      background: var(--info-color);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .fermi-formula h4 {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .formula-text {
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .fermi-conclusion {
+      background: #E8F5E8;
+      border: 2px solid var(--success-color);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .conclusion-number {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--success-color);
+      margin-bottom: 8px;
+    }
+
+    .conclusion-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--dark-gray);
+    }
+
+    /* 打ち消し線デザイン（廃止施策用） */
+    .deprecated-section {
+      position: relative;
+      opacity: 0.6;
+      color: #888888;
+    }
+
+    .deprecated-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        #DC2626 10%, 
+        #DC2626 90%, 
+        transparent 100%);
+      transform: translateY(-50%);
+      z-index: 1;
+    }
+
+    .deprecated-section h2 {
+      position: relative;
+      z-index: 2;
+      text-decoration: line-through;
+      text-decoration-color: #DC2626;
+      text-decoration-thickness: 3px;
+    }
+
+    .deprecated-section .card {
+      position: relative;
+      z-index: 2;
+      background-color: #F9FAFB;
+      border-color: #D1D5DB;
+    }
+
+    .deprecated-section .pill-option {
+      background-color: #F3F4F6;
+      color: #6B7280;
+      border-color: #D1D5DB;
+    }
+
+    .deprecated-badge {
+      display: inline-block;
+      background-color: #DC2626;
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* メインコンテンツ */
+    .content {
+      padding: 40px 32px;
+    }
+
+    /* 見出し */
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-color);
+      margin: 40px 0 20px;
+      padding-left: 16px;
+      border-left: 6px solid var(--primary-color);
+    }
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--dark-gray);
+      margin: 24px 0 16px;
+    }
+
+    h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--dark-gray);
+      margin: 20px 0 12px;
+    }
+
+    /* テキスト */
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+      color: var(--text-color);
+    }
+
+    /* リスト */
+    ul, ol {
+      margin: 16px 0;
+      padding-left: 24px;
+    }
+
+    li {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    /* カード */
+    .card {
+      background-color: var(--white);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 28px;
+      margin: 24px 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h3:first-child {
+      margin-top: 0;
+    }
+
+    /* 成果予測カード */
+    .result-card {
+      background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+      border: 2px solid var(--primary-color);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 32px 0;
+      text-align: center;
+    }
+
+    .result-number {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+    }
+
+    .result-text {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--dark-gray);
+      margin-bottom: 16px;
+    }
+
+    /* グリッドレイアウト */
+    .grid {
+      display: grid;
+      gap: 24px;
+      margin: 24px 0;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    /* タグ/ピル */
+    .pill {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-size: 14px;
+      font-weight: 600;
+      margin: 6px 12px 6px 0;
+    }
+
+    .pill-primary {
+      background-color: #DBEAFE;
+      color: #1E40AF;
+      border: 1px solid #93C5FD;
+    }
+
+    .pill-success {
+      background-color: #D1FAE5;
+      color: #065F46;
+      border: 1px solid #6EE7B7;
+    }
+
+    .pill-warning {
+      background-color: #FEF3C7;
+      color: #92400E;
+      border: 1px solid #FCD34D;
+    }
+
+    .pill-option {
+      background-color: #F3E8FF;
+      color: #7C3AED;
+      border: 1px solid #C4B5FD;
+    }
+
+    .pill-danger {
+      background-color: #FEE2E2;
+      color: #B91C1C;
+      border: 1px solid #FCA5A5;
+    }
+
+    /* テーブル */
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 15px;
+    }
+
+    .table th,
+    .table td {
+      border: 1px solid var(--border-color);
+      padding: 14px 16px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .table th {
+      background-color: var(--light-gray);
+      font-weight: 600;
+      color: var(--dark-gray);
+    }
+
+    .table tbody tr:nth-child(even) {
+      background-color: #FAFAFA;
+    }
+
+    /* 比較テーブル（新規追加）*/
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .comparison-table th {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+      color: white;
+      padding: 16px 12px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .comparison-table td {
+      padding: 16px 12px;
+      border: 1px solid var(--border-color);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .comparison-table tr:nth-child(even) {
+      background-color: #FAFAFA;
+    }
+
+    .comparison-table .category-cell {
+      background-color: var(--light-gray);
+      font-weight: 600;
+      color: var(--dark-gray);
+      width: 20%;
+    }
+
+    .comparison-table .individual-cell {
+      background-color: #FEF2F2;
+      color: var(--dark-gray);
+      width: 40%;
+    }
+
+    .comparison-table .project-cell {
+      background-color: #F0F9FF;
+      color: var(--dark-gray);
+      width: 40%;
+      border-left: 3px solid var(--primary-color);
+    }
+
+    /* スケジュールテーブル（新規追加）*/
+    .schedule-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .schedule-table th {
+      background: linear-gradient(135deg, var(--success-color), #34C759);
+      color: white;
+      padding: 16px 12px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .schedule-table td {
+      padding: 16px 12px;
+      border: 1px solid var(--border-color);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .schedule-table tr:nth-child(even) {
+      background-color: #FAFAFA;
+    }
+
+    .schedule-table .task-cell {
+      background-color: var(--light-gray);
+      font-weight: 600;
+      color: var(--dark-gray);
+      width: 35%;
+    }
+
+    .schedule-table .date-cell {
+      text-align: center;
+      font-family: 'Courier New', monospace;
+      width: 32.5%;
+    }
+
+    .schedule-table .critical-row {
+      background-color: #FEF3C7 !important;
+      font-weight: 600;
+    }
+
+    .schedule-table .launch-row {
+      background-color: #ECFDF5 !important;
+      font-weight: 600;
+      color: var(--success-color);
+    }
+
+    /* 簡単な成果予測テーブル */
+    .simple-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 16px;
+    }
+
+    .simple-table th,
+    .simple-table td {
+      padding: 16px;
+      text-align: center;
+      border: 2px solid var(--border-color);
+    }
+
+    .simple-table th {
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 600;
+    }
+
+    .simple-table .highlight-row {
+      background-color: #FEF3C7;
+      font-weight: 600;
+    }
+
+    /* コピー文 */
+    .copy-text {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary-color);
+      text-align: center;
+      padding: 24px;
+      margin: 20px 0;
+      background-color: #F0F9FF;
+      border: 2px dashed var(--primary-light);
+      border-radius: 12px;
+    }
+
+    /* フロー/ステップ */
+    .flow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 24px 0;
+    }
+
+    .step {
+      flex: 1 1 220px;
+      min-width: 220px;
+      background-color: var(--white);
+      border: 2px solid var(--border-color);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .step h4 {
+      color: var(--primary-color);
+      margin-bottom: 12px;
+    }
+
+    .step p {
+      font-size: 15px;
+      margin: 0;
+      color: var(--medium-gray);
+    }
+
+    /* 注意書き/ノート */
+    .note {
+      background-color: #F8FAFC;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: var(--dark-gray);
+    }
+
+    .note-info {
+      background-color: #F0F9FF;
+      border-color: var(--info-color);
+      color: #1E40AF;
+    }
+
+    .note-success {
+      background-color: #ECFDF5;
+      border-color: var(--success-color);
+      color: #065F46;
+    }
+
+    .note-warning {
+      background-color: #FEF3C7;
+      border-color: var(--warning-color);
+      color: #92400E;
+    }
+
+    .note-option {
+      background-color: #F3E8FF;
+      border-color: #A855F7;
+      color: #7C3AED;
+    }
+
+    .note-danger {
+      background-color: #FEF2F2;
+      border-color: var(--danger-color);
+      color: #B91C1C;
+    }
+
+    /* 強調テキスト */
+    .highlight {
+      font-weight: 600;
+      color: var(--accent-color);
+    }
+
+    .success {
+      color: var(--success-color);
+      font-weight: 600;
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+      .container {
+        margin: 10px;
+        border-radius: 8px;
+      }
+      
+      .header,
+      .content {
+        padding: 24px 20px;
+      }
+      
+      .budget-overview,
+      .fermi-card,
+      .challenge-card {
+        margin: 20px;
+        padding: 24px;
+      }
+      
+      .budget-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .header h1 {
+        font-size: 26px;
+      }
+      
+      h2 {
+        font-size: 22px;
+      }
+      
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      
+      .flow {
+        flex-direction: column;
+      }
+      
+      .step {
+        min-width: auto;
+      }
+
+      .result-number {
+        font-size: 36px;
+      }
+
+      .conclusion-number {
+        font-size: 24px;
+      }
+
+      .comparison-table,
+      .schedule-table {
+        font-size: 12px;
+      }
+
+      .comparison-table th,
+      .comparison-table td,
+      .schedule-table th,
+      .schedule-table td {
+        padding: 8px 6px;
+      }
+
+      .deprecated-section::before {
+        height: 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="confidential">機密資料 - CONFIDENTIAL - 関係者以外の閲覧・配布を禁止します</div>
+    
+    <header class="header">
+      <h1>大分IT移住プロジェクト｜メディアミックス戦略提案書</h1>
+      <p>SNS想起を起点としたGoogleデマンドジェネレーション広告による刈り取り戦略</p>
+    </header>
+
+    <!-- 予算概要セクション -->
+    <div class="budget-overview">
+      <h2>戦略概要と予算配分</h2>
+      <p><strong>50万円の投資で25名の移住者獲得を目指すメディアミックス戦略</strong></p>
+      <div class="budget-grid">
+        <div class="budget-item">
+          <div class="budget-number">50万円</div>
+          <div class="budget-label">総投資予算</div>
+        </div>
+        <div class="budget-item">
+          <div class="budget-number">25人</div>
+          <div class="budget-label">目標移住者数</div>
+        </div>
+        <div class="budget-item">
+          <div class="budget-number">2万円</div>
+          <div class="budget-label">移住者CPA（理想値）</div>
+        </div>
+        <div class="budget-item">
+          <div class="budget-number">3ヶ月</div>
+          <div class="budget-label">実行期間</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- フェルミ推定セクション -->
+    <div class="fermi-card">
+      <div class="fermi-title">ターゲット母数推定（保守的計算）</div>
+      
+      <div class="fermi-steps">
+        <div class="fermi-step">
+          <div class="step-label">Step 1: 基準人口</div>
+          <div class="step-calculation">国内フリーランス総数：約462万人（2023年ランサーズ調査）</div>
+          <div class="step-result">基準値：4,620,000人</div>
+        </div>
+
+        <div class="fermi-step">
+          <div class="step-label">Step 2: リモートワーク可能率</div>
+          <div class="step-calculation">場所に関係なく働ける職種の割合：15%（保守的見積もり）</div>
+          <div class="step-result">対象者：4,620,000 × 15% = 693,000人</div>
+        </div>
+
+        <div class="fermi-step">
+          <div class="step-label">Step 3: 対象年齢層</div>
+          <div class="step-calculation">25-54歳の割合：65%（キャリア形成・移住実現可能層）</div>
+          <div class="step-result">年齢適合者：693,000 × 65% = 450,450人</div>
+        </div>
+
+        <div class="fermi-step">
+          <div class="step-label">Step 4: 移住検討可能層</div>
+          <div class="step-calculation">家族・住宅ローン等の制約がない層：8%（厳しめ設定）</div>
+          <div class="step-result">制約なし層：450,450 × 8% = 36,036人</div>
+        </div>
+
+        <div class="fermi-step">
+          <div class="step-label">Step 5: 地方移住関心層</div>
+          <div class="step-calculation">地方移住に関心がある層：12%（内閣府調査より低めに設定）</div>
+          <div class="step-result">関心層：36,036 × 12% = 4,324人</div>
+        </div>
+
+        <div class="fermi-step">
+          <div class="step-label">Step 6: 実際のアクション可能層</div>
+          <div class="step-calculation">意識と行動のギャップを考慮：5%（現実的な行動力評価）</div>
+          <div class="step-result">行動可能層：4,324 × 5% = 216人</div>
+        </div>
+      </div>
+
+      <div class="fermi-formula">
+        <h4>計算式</h4>
+        <div class="formula-text">
+          462万人 × 15% × 65% × 8% × 12% × 5% ≈ 216人
+        </div>
+      </div>
+
+      <div class="fermi-conclusion">
+        <div class="conclusion-number">約216人</div>
+        <div class="conclusion-text">保守的に推定した現実的なターゲット母数</div>
+      </div>
+
+      <div class="note note-warning">
+        <strong>保守的設定の理由：</strong>過度に楽観的な数値を避け、家族構成・住宅ローン・地域への不安・実際の行動力等の制約要因を厳しく見積もった結果です。このターゲット母数に対して50万円で25人獲得（約12%の市場シェア獲得）は挑戦的だが実現可能な目標設定です。
+      </div>
+    </div>
+
+    <main class="content">
+      <section>
+        <h2>投資対効果の詳細</h2>
+        <div class="result-card">
+          <div class="result-number">25人</div>
+          <div class="result-text">移住者獲得目標（理想値）</div>
+          <p>投資金額：50万円 ÷ 25人 = <strong>移住者1人当たりのCPA：2万円</strong></p>
+        </div>
+
+        <table class="simple-table">
+          <thead>
+            <tr>
+              <th>項目</th>
+              <th>予算</th>
+              <th>期待CV数</th>
+              <th>CPA</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ウェビナー申込</td>
+              <td>-</td>
+              <td>125人</td>
+              <td>¥4,000</td>
+            </tr>
+            <tr>
+              <td>個別相談申込</td>
+              <td>-</td>
+              <td>50人</td>
+              <td>¥10,000</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><strong>実際の移住者</strong></td>
+              <td><strong>50万円</strong></td>
+              <td><strong>25人</strong></td>
+              <td><strong>¥20,000</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note note-warning">
+          <strong>重要：</strong>上記数値は過去の大分IT移住プロジェクト実績（2021-2024年で147人受講、208名移住）やデマンドジェネレーション広告の一般的な成果を基にした期待値です。実際の成果は市場環境、競合状況、クリエイティブ品質等により変動する可能性があります。
+        </div>
+      </section>
+
+      <section>
+        <h2>1. ターゲット再定義</h2>
+        <div class="card">
+          <h3>従来ターゲットの課題と再定義の必要性</h3>
+          <div class="note note-warning">
+            <strong>従来の課題：</strong>これまで「ITエンジニア・開発職」を中心としたターゲティングを行ってきましたが、大分県内で開発エンジニアとしての継続的なキャリアパスを描ける環境は限定的です。結果的に、移住後のキャリア形成に不安を抱えるユーザーが多く、真の意味での「移住成功」に繋がっていない可能性があります。
+          </div>
+
+          <h3>新ターゲット（再定義後）</h3>
+          <div class="grid grid-2">
+            <div>
+              <h4>主要ターゲット</h4>
+              <ul>
+                <li><strong>働き方重視層：</strong>場所に縛られずに働ける全職種（IT系に限定しない）</li>
+                <li><strong>ライフスタイル重視層：</strong>年収よりも生活の質・時間的余裕を重視する層</li>
+                <li><strong>リモートワーク経験者：</strong>既にリモートワークの経験があり、その継続が可能な人材</li>
+              </ul>
+            </div>
+            <div>
+              <h4>興味関心軸（再定義）</h4>
+              <ul>
+                <li><span class="highlight">持続可能なキャリア形成：</span>大分でも継続・発展可能な仕事内容への関心</li>
+                <li><span class="highlight">ワークライフインテグレーション：</span>仕事と生活の境界を意識的に溶かした新しい働き方</li>
+                <li><span class="highlight">コストパフォーマンス重視：</span>同じ収入でもより豊かな生活を実現したいニーズ</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>フリーランスにとってのプロジェクト利用価値比較</h3>
+          <p>既にスキルを持つフリーランスが、なぜ「大分IT移住プロジェクト」を利用するのか？それは単なるスクールではなく、<strong>移住成功のアクセラレーター</strong>として機能するためです。</p>
+          
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>項目</th>
+                <th>個人での移住（プロジェクト不使用）</th>
+                <th>大分IT移住プロジェクト利用</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="category-cell"><strong>コミュニティ形成</strong></td>
+                <td class="individual-cell">ゼロから人脈を構築する必要があり、特に最初の数ヶ月は<strong>強い孤独感</strong>に苛まれる。事業アイデアの壁打ち相手もいない。</td>
+                <td class="project-cell">プロジェクト参加者や卒業生、運営スタッフとの<strong>即時的で質の高いコミュニティ</strong>に所属できる。これが最大のベネフィット。</td>
+              </tr>
+              <tr>
+                <td class="category-cell"><strong>社会的信用</strong></td>
+                <td class="individual-cell">「どこの馬の骨かわからない余所者」として見られ、<strong>地域社会やビジネスシーンでの信頼獲得に時間がかかる</strong>。</td>
+                <td class="project-cell">大分県や市が後援するプロジェクトの一員として、<strong>「お墨付き」の社会的信用</strong>を最初から得られる。</td>
+              </tr>
+              <tr>
+                <td class="category-cell"><strong>ビジネス機会</strong></td>
+                <td class="individual-cell">地域のキーパーソンや商慣習がわからず、<strong>地場企業との接点を作りにくい</strong>。営業活動も手探り状態。</td>
+                <td class="project-cell">県や商工会議所、地場企業との<strong>公式なコネクション</strong>を活用でき、地域課題解決プロジェクトなどへの参画機会を得やすい。</td>
+              </tr>
+              <tr>
+                <td class="category-cell"><strong>生活の立ち上げ</strong></td>
+                <td class="individual-cell">土地勘がなく、住居探しや最適なインフラ契約で消耗する。地域特有のルールがわからず、<strong>無駄な時間と精神的コスト</strong>が発生。</td>
+                <td class="project-cell">移住者向けの物件情報や、移住の先輩たちの「生きた知恵」にアクセスでき、<strong>「ソフトランディング」</strong>が実現する。</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="note note-success">
+            <strong>再定義のメリット：</strong>フリーランスにとって、このプロジェクトは「移住成功のための保険であり、ワープ装置」として機能します。①インスタント・コミュニティによる孤独からの解放 ②「お墨付き」による信用の獲得 ③インサイダー情報へのアクセス、これら3つが主要な価値提供となります。
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>2. メディアミックス戦略</h2>
+        <div class="card">
+          <h3>戦略コンセプト：SNS想起→デマンドジェネレーション広告刈り取り</h3>
+          <p>外注制作されたSNSコンテンツで「大分での理想的な働き方」への憧憬と好奇心を醸成し、「あ、TikTokで見たあの素敵な大分ライフだ！」という既視感を創出。その後、Googleデマンドジェネレーション広告でYouTube・Discover・Gmailを通じて興味を持ったユーザーを効率的に刈り取る戦略です。</p>
+          
+          <div class="grid grid-3">
+            <div>
+              <span class="pill pill-primary">SNS外注制作 20万円</span>
+              <p class="note">TikTok・Instagram向け「憧れの大分ライフ」を魅力的に描写</p>
+            </div>
+            <div>
+              <span class="pill pill-warning">SNS広告ブースト 20万円</span>
+              <p class="note">高エンゲージメント動画に限定して想起拡大とブランド浸透</p>
+            </div>
+            <div>
+              <span class="pill pill-success">デマンドジェン広告 10万円</span>
+              <p class="note">YouTube・Discover・Gmail配信で「やってみたい」気持ちを行動に転換</p>
+            </div>
+          </div>
+
+          <h3>SNS導線設計：LINEマーケティング活用による関係構築</h3>
+          <p>従来のSNSフォロー型から、よりクローズドで継続的な関係構築が可能なLINE公式アカウントを中心とした導線設計を検討中です。</p>
+          
+          <div class="grid grid-2">
+            <div>
+              <h4>LINEステップ配信シナリオ（検討中）</h4>
+              <ul>
+                <li><strong>Day1-3：</strong>移住の不安解消シリーズ（先輩移住者の体験談配信）</li>
+                <li><strong>Day4-7：</strong>大分の魅力発信（仕事環境・生活コスト・地域コミュニティ）</li>
+                <li><strong>Day8-14：</strong>具体的移住プロセス解説（準備期間・手続き・タイムライン）</li>
+                <li><strong>Day15以降：</strong>週1回の移住関連情報配信と個別相談誘導</li>
+              </ul>
+            </div>
+            <div>
+              <h4>LINEリッチメニュー構成（検討中）</h4>
+              <ul>
+                <li><strong>移住相談：</strong>個別相談申込フォームへの直接誘導</li>
+                <li><strong>体験談：</strong>移住者インタビュー動画・記事へのアクセス</li>
+                <li><strong>説明会：</strong>ウェビナー申込と過去開催分のアーカイブ</li>
+                <li><strong>コミュニティ：</strong>移住検討者同士の交流グループへの参加</li>
+                <li><strong>FAQ：</strong>よくある質問と回答集</li>
+                <li><strong>最新情報：</strong>大分の求人情報・住宅情報の定期更新</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="note note-info">
+            <strong>LINE活用の戦略的メリット：</strong>①SNSアルゴリズムに左右されない直接的なコミュニケーション ②開封率の高さ（メール比約3-5倍） ③リッチメニューによる多角的な情報提供 ④ステップ配信による段階的な関係構築 ⑤ユーザーの反応データに基づく個別最適化が可能
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>3. Googleデマンドジェネレーション広告戦略</h2>
+        <div class="card">
+          <h3>配信面とターゲティング</h3>
+          <div class="grid grid-2">
+            <div>
+              <h4>主要配信面</h4>
+              <ul>
+                <li><strong>YouTube：</strong>インストリーム・ショート・インフィード広告</li>
+                <li><strong>Discover：</strong>ユーザーの趣味嗜好に合わせた自動配信</li>
+                <li><strong>Gmail：</strong>受信ボックス内への広告掲載</li>
+                <li><strong>Google動画パートナー：</strong>提携サイトでの動画広告</li>
+              </ul>
+            </div>
+            <div>
+              <h4>ターゲティング設定</h4>
+              <p>デマンドジェネレーション広告の特性を活かし、細かなセグメントは行わず、Googleの機械学習による自動最適化を重視します。</p>
+              <ul>
+                <li><strong>地域：</strong>日本全国（大分県除く）</li>
+                <li><strong>年齢：</strong>25-54歳</li>
+                <li><strong>デバイス：</strong>全デバイス対応</li>
+                <li><strong>最適化：</strong>コンバージョン重視の自動入札</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>4. クリエイティブ戦略</h2>
+        <div class="card">
+          <h3>メインコピー案</h3>
+          <div class="copy-text">仕事は変えず、暮らしを変える。<br>まずは話を聞いてみませんか？</div>
+          <div class="copy-text">次の住む場所、ワクワクで決めよう。<br>働き心地のA/Bテスト、始めませんか？</div>
+          <div class="copy-text">スキルがあるなら、場所は選べる。<br>どうせなら"ととのう"毎日を。</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>5. 詳細な成果予測</h2>
+        <div class="card">
+          <h3>メインファネル別の期待値（あくまで予測）</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>段階</th>
+                <th>期待CV数</th>
+                <th>前段階からのCV率</th>
+                <th>累計投資額でのCPA</th>
+                <th>根拠</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ウェビナー申込</td>
+                <td>125人</td>
+                <td>-</td>
+                <td>¥4,000</td>
+                <td>デマンドジェン広告の一般的なCPA</td>
+              </tr>
+              <tr>
+                <td>ウェビナー参加</td>
+                <td>100人</td>
+                <td>80%</td>
+                <td>¥5,000</td>
+                <td>一般的なウェビナー参加率</td>
+              </tr>
+              <tr>
+                <td>個別相談申込</td>
+                <td>50人</td>
+                <td>50%</td>
+                <td>¥10,000</td>
+                <td>再定義ターゲットの高い関心度</td>
+              </tr>
+              <tr style="background-color: #FEF3C7; font-weight: 600;">
+                <td><strong>実際の移住決定</strong></td>
+                <td><strong>25人</strong></td>
+                <td><strong>50%</strong></td>
+                <td><strong>¥20,000</strong></td>
+                <td><strong>持続可能なキャリア設計による高い決定率</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div class="note note-success">
+            <strong>ターゲット再定義による効果：</strong>大分で持続可能なキャリア形成が可能な層をターゲットにすることで、移住後の満足度向上と長期定着率の改善が期待できます。
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>成功・失敗シナリオ</h3>
+          <div class="grid grid-2">
+            <div>
+              <h4 class="success">理想シナリオ（移住者CPA 15,000円）</h4>
+              <ul>
+                <li>ウェビナー申込：150人</li>
+                <li>個別相談申込：60人</li>
+                <li><strong>移住者：33人（移住者CPA：15,152円）</strong></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="highlight">最低ラインシナリオ（移住者CPA 33,333円）</h4>
+              <ul>
+                <li>ウェビナー申込：75人</li>
+                <li>個別相談申込：30人</li>
+                <li><strong>移住者：15人（移住者CPA：33,333円）</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 廃止施策：7日間体験移住 -->
+      <section class="deprecated-section">
+        <h2>6. 予備施策：7日間体験移住<span class="deprecated-badge">実施困難により廃止</span></h2>
+        <div class="card">
+          <span class="pill pill-option">予備施策（廃止）</span>
+          <h3>個別相談で移住に迷いがある場合の追加オプション</h3>
+          <p>個別相談の結果、移住に対して不安や迷いを持つ方向けの追加施策として、7日間の体験移住プログラムを用意します。これはメインファネルの計算には含めず、移住決定率向上のサポート施策として位置づけます。</p>
+          
+          <div class="note note-option">
+            <strong>想定対象：</strong>個別相談参加者のうち、移住に興味はあるが決断に迷いがある層（全体の20-30%程度）<br>
+            <strong>実施方法：</strong>住環境・仕事環境・コミュニティを実際に体験できる短期プログラム<br>
+            <strong>効果期待：</strong>体験後の移住決定率70-80%（通常50%→70-80%への改善）
+          </div>
+          
+          <div class="note note-danger">
+            <strong>廃止理由：</strong>運営リソースの制約と実施に伴う安全管理・法的責任の問題により、当面の間は実施困難と判断。代替手段として「体験大分ツアー（実費参加）」を実施する方針。
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>7. 体験大分ツアー（実費参加・運営同行）</h2>
+        <div class="card">
+          <h3>狙いと前提</h3>
+          <div class="note note-success">
+            <strong>戦略仮説：</strong>移住の意思決定は「実際に来たこと」と「人との接点」に大きく依存するため、運営メンバーが直接同行する実地ツアーを最終コンバージョン手段として実装する。今回はターゲット特性上「仕事マッチング」は一旦省略し、体験と人的つながりにフォーカスする。
+          </div>
+
+          <div class="grid grid-2">
+            <div>
+              <h4>実施コンセプト</h4>
+              <ul>
+                <li>対象：宿泊費・交通費を自己負担できる一定所得の層（実費参加）</li>
+                <li>内容：運営メンバー最大2名が同行する少人数ツアー（参加者最大6名）</li>
+                <li>目的：候補者の最終意思決定を後押しする「決定打」の提供</li>
+              </ul>
+            </div>
+            <div>
+              <h4>想定メリット</h4>
+              <ul>
+                <li>「来たことがある」を作り、心理的ハードルを解消</li>
+                <li>運営・先輩移住者との直接接点で信頼形成を加速</li>
+                <li>オンライン情報では得られない生活実感を提供</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>ツアー構成（1泊2日例）</h3>
+          <div class="grid grid-3">
+            <div class="note">
+              <strong>Day1（午後）｜都市・仕事文脈</strong><br>
+              大分駅周辺〜コワーキング見学〜実務可能スポット〜夕食交流会（先輩移住者合流）
+            </div>
+            <div class="note">
+              <strong>Day2（午前）｜暮らし文脈</strong><br>
+              住環境（賃貸/空き家バンク）見学〜生活導線（スーパー/医療/教育/温泉）体験
+            </div>
+            <div class="note">
+              <strong>Day2（午後）｜将来像の言語化</strong><br>
+              運営メンバーとの1on1壁打ち〜移住判断フレーム配布〜次アクション合意
+            </div>
+          </div>
+
+          <h3>費用と運用（実費参加型）</h3>
+          <ul>
+            <li>参加者負担：交通費＋宿泊費（目安：新幹線/航空＋地域宿泊）</li>
+            <li>運営負担：同行人件・現地手配・会場/移動のアテンド（必要に応じて軽食/会場費）</li>
+            <li>コスト最適化：体験宿泊施設/提携宿の活用で宿泊単価を圧縮、共同移動で現地交通を効率化</li>
+          </ul>
+
+          <h3>導線と対象者の絞り込み</h3>
+          <ul>
+            <li>導線：個別相談→適合度ヒアリング→ツアー打診→日程/費用合意→参加</li>
+            <li>対象基準：大分での生活像が具体化している/リモート継続や収入の見込みがある/意思決定予定が3ヶ月以内</li>
+            <li>定員運用：月1回・各回最大6名目安（少人数高密度で信頼形成を優先）</li>
+            <li>運営体制：運営メンバー最大2名同行（人件費とアテンド品質のバランス重視）</li>
+          </ul>
+
+          <h3>期待効果</h3>
+          <div class="note note-info">
+            <strong>意思決定率の上振れ：</strong>ツアー参加者の移住決定率は通常の個別相談後50%に対し、60〜75%を目安に想定（現地体験と人的接点の効果）。
+          </div>
+
+          <h3>ガバナンスとリスク配慮</h3>
+          <ul>
+            <li>透明性：実費負担の範囲を事前明記（交通/宿泊/食事/体験費の内訳テンプレ付与）</li>
+            <li>安全管理：少人数制・緊急連絡先・参加同意書（免責/行動規範）</li>
+            <li>過度な営業化回避：判断の尊重を最優先、案内と情報提供に徹する</li>
+          </ul>
+
+          <div class="note note-warning">
+            <strong>補足：</strong>ターゲット層は一定の所得が見込めるため、実費参加は大きな障壁になりにくい。一方で費用可視化と体験価値の事前提示（行程表・見学先・同行者プロフィール）は必須。
+          </div>
+
+          <div class="copy-text" style="margin-top:12px;">
+            実費参加の少人数ツアーで、大分の「暮らし」と「人」を体感しませんか？<br>
+            参加条件と日程の候補は個別相談でご案内します。
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>8. 実行スケジュール</h2>
+        <div class="card">
+          <h3>10月6日（月）広告配信開始目標：超短期集中スケジュール</h3>
+          <p>9月30日から10月6日に広告配信開始を目指す超タイトな進行管理の全体像です。各タスクの遅延が全体スケジュールに波及するため、即断即決と並列作業を徹底してください。</p>
+
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>タスク名</th>
+                <th>開始日</th>
+                <th>終了日</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="critical-row">
+                <td class="task-cell"><strong>CV用動画 企画・構成決定</strong></td>
+                <td class="date-cell">2025-09-29</td>
+                <td class="date-cell">2025-09-29</td>
+              </tr>
+              <tr class="critical-row">
+                <td class="task-cell"><strong>CV用動画 撮影</strong></td>
+                <td class="date-cell">2025-09-30</td>
+                <td class="date-cell">2025-09-30</td>
+              </tr>
+              <tr>
+                <td class="task-cell">動画編集・修正（CV用のみ）</td>
+                <td class="date-cell">2025-10-01</td>
+                <td class="date-cell">2025-10-02</td>
+              </tr>
+              <tr>
+                <td class="task-cell">LP制作（デザイン・コーディング）</td>
+                <td class="date-cell">2025-10-01</td>
+                <td class="date-cell">2025-10-01</td>
+              </tr>
+              <tr>
+                <td class="task-cell">広告クリエイティブ制作</td>
+                <td class="date-cell">2025-10-02</td>
+                <td class="date-cell">2025-10-04</td>
+              </tr>
+              <tr>
+                <td class="task-cell">広告入稿・審査・技術設定</td>
+                <td class="date-cell">2025-10-04</td>
+                <td class="date-cell">2025-10-05</td>
+              </tr>
+              <tr class="launch-row">
+                <td class="task-cell"><strong>広告配信開始</strong></td>
+                <td class="date-cell"><strong>2025-10-06</strong></td>
+                <td class="date-cell"><strong>2025-10-31</strong></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="note note-danger">
+            <strong>スケジュール達成の絶対条件：</strong>①CV用動画の本日中（9/30）撮影完了 ②各工程でのフィードバックを数時間以内に実施 ③LPは1日制作（シンプル構成限定） ④週末作業の許容 ⑤修正は各工程1回限り
+          </div>
+        </div>
+      </section>
+
+      <!-- 課題感・リスク分析セクション -->
+      <section>
+        <h2>9. 戦略実行における重要課題とリスク分析</h2>
+        <div class="challenge-card">
+          <div class="challenge-title">主要リスク要因</div>
+          
+          <div class="risk-item">
+            <div class="risk-header">リスク1: 専用LP制作の必要性</div>
+            <div class="risk-description">現状のトップページでは、SNS→広告→LP→コンバージョンの導線が最適化されておらず、CVRの大幅な低下が懸念される。</div>
+            <div class="risk-impact"><strong>影響度：</strong>CVR30-50%低下の可能性。目標25人→実際12-17人程度になるリスク</div>
+          </div>
+
+          <div class="risk-item">
+            <div class="risk-header">リスク2: オフライン接点の不足</div>
+            <div class="risk-description">
+              移住は人生の大きな決断であり、SNS上のみの関係構築では信頼関係の形成が困難。現地での人的つながりがない場合、最終的な移住決定に至らない可能性が高い。
+              <br><br>
+              <div class="note note-info" style="margin-top: 12px;">
+                <strong>【補足】</strong>現在はオンライン中心の設計ですが、SNS経由で十分な申込リストが獲得できた地域については、オフライン＋オンライン併用のハイブリッド型説明会も戦略オプションとして今後段階的に検討します（例：参加見込10名以上の都市で限定現地開催など）
+              </div>
+            </div>
+            <div class="risk-impact"><strong>影響度：</strong>個別相談後の移住決定率が50%→20-30%に低下するリスク。ただしハイブリッド説明会導入により補完可能性あり。</div>
+          </div>
+
+          <div class="risk-item">
+            <div class="risk-header">リスク3: ショート動画依存の脆弱性（メディアミックスの掛け算リスク）</div>
+            <div class="risk-description">本戦略は、ショート動画による想起形成→デマンドジェネレーション広告での刈り取りという掛け算構造になっており、一方が失敗すると全体が機能不全に陥る構造的リスクを抱えている。</div>
+            
+            <!-- 数式による説明セクション -->
+            <div style="background: white; border: 2px solid #DC2626; border-radius: 8px; padding: 20px; margin: 16px 0;">
+              <h4 style="color: #DC2626; margin-bottom: 16px; text-align: center;">メディアミックスの掛け算効果とリスク</h4>
+              
+              <div style="font-family: 'Courier New', monospace; font-size: 16px; text-align: center; margin: 16px 0;">
+                <div style="background: #F0F9FF; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                  <strong>理想シナリオ：</strong><br>
+                  SNS想起効果(10) × デマンドジェン広告効果(5) = <span style="color: #059669; font-weight: bold;">総合効果(50)</span>
+                </div>
+                
+                <div style="background: #FEF2F2; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                  <strong>ショート動画低迷時：</strong><br>
+                  SNS想起効果(1) × デマンドジェン広告効果(5) = <span style="color: #DC2626; font-weight: bold;">総合効果(5)</span>
+                </div>
+                
+                <div style="background: #FEF2F2; padding: 12px; border-radius: 6px; margin: 8px 0;">
+                  <strong>ショート動画完全失敗時：</strong><br>
+                  SNS想起効果(0) × デマンドジェン広告効果(5) = <span style="color: #DC2626; font-weight: bold;">総合効果(0)</span>
+                </div>
+              </div>
+              
+              <div style="font-size: 14px; color: #374151; margin-top: 16px;">
+                <strong>具体的影響：</strong>
+                <ul style="text-align: left; margin: 8px 0; padding-left: 20px;">
+                  <li>ショート動画がバズらない場合：成果が理想の10%程度（移住者2-3人）に激減</li>
+                  <li>ショート動画が完全失敗の場合：デマンドジェン広告も「既視感なし」で効果ゼロ</li>
+                  <li>想起がないため、広告を見ても「知らないブランド」として無視される</li>
+                  <li>40万円（SNS制作+ブースト費用）が実質的に無駄になる可能性</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="risk-impact"><strong>影響度：</strong>ショート動画失敗時は全体戦略の効果が90%以上減少し、移住者獲得が2-3人程度に留まるリスク</div>
+          </div>
+
+          <div class="note note-danger">
+            <strong>総合リスク評価：</strong>上記リスクが複合的に発生した場合、目標25人に対し実際の移住者は2-5人程度に留まる可能性があります。特にショート動画の成功可否が全体戦略の成否を左右する構造的リスクに注意が必要です。
+          </div>
+        </div>
+      </section>
+
+      <div class="result-card">
+        <div class="result-text">最終目標</div>
+        <div class="result-number">25人</div>
+        <p><strong>50万円の投資で25人の移住者獲得</strong><br>
+        1人当たり移住者獲得コスト：20,000円</p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // 右クリック・コピー防止（簡易）
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.ctrlKey && (e.key === 's' || e.key === 'a' || e.key === 'c' || e.key === 'v' || e.key === 'x')) {
+        e.preventDefault();
+      }
+      if (e.key === 'F12') {
+        e.preventDefault();
+      }
+    });
+  </script>
+</body>
+</html>
